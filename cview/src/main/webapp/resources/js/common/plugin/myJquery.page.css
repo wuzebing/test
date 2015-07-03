@@ -1,0 +1,65 @@
+/*分页样式*/
+.pageDiv{
+	display:none;
+	font-family: "Microsoft Yahei";
+	color: #333;
+	font-size: 14px;
+}
+.pageBox{
+	text-align:center;
+}
+/*分页按钮样式*/
+.pageBox .page_a {
+	height: 25px;
+	display: inline;
+	line-height: 25px;
+	text-align: center;
+	font-size: 14px;
+	text-decoration: none;
+	color: #333;
+	border-width: 1px;
+	border-color: #CCCCCC;
+	border-style: solid;
+	margin-right: 3px;
+	margin-left: 3px;
+	padding-left: 8px;
+	padding-right: 8px;
+	cursor: pointer;
+	font-family: "Microsoft Yahei"；
+}
+/*鼠标按下按钮样式*/
+.pageBox .pageDown {
+	color: #FFFFFF;
+	border-color: #FE5500;
+	background-color: #FE941E;
+}
+/*鼠标悬浮按钮样式*/
+.pageBox .page_a:hover {
+	color: #FFFFFF;
+	background-color: #FE941E;
+	border-color: #FE5500;
+}
+
+.pageBox .pageselect {
+	width: 30px;
+	border:1px solid #ccc;
+	height:20px;
+	line-height:20px;
+}
+
+.pageBox .pageDisplay {
+	display: none;
+}
+
+.pageBox .confimBut {
+	background-color: #EEEEEE;
+}
+.pageDisabled{
+	cursor: default;
+}
+.pageDisabled:hover{
+	color: #000000 !important;
+	background-color: #FFF !important;
+	border-color: #CCCCCC !important;
+	cursor: default;
+}

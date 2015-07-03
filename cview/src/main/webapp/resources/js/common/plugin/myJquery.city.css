@@ -1,0 +1,372 @@
+.cityRIA {
+	display:inline;
+	clear: both;
+    height: 0px;
+    line-height: 0;
+	position: absolute;
+	z-index: 1000;
+	visibility: hidden;
+	top: -100px;
+	left: -100px;
+}
+
+.cityRIA .CityRIAInput{
+}
+
+.cityRIA .CityRIAInput input{
+}
+
+.CityRIAlabelReplace{
+	float: left;
+	cursor: text;
+	margin-top: 2px;
+	position: absolute;
+	background:#ffffff;
+}
+
+.cityRIA .widgetTitle250 {
+	width: 240px;
+	float: left;
+	display: inline;
+	height: 32px;
+	background: url(myJqueryCityImages/se.png) no-repeat scroll 0px -135px #FFF;
+	line-height: 32px;
+	margin-bottom: -2px !important;
+}
+
+.cityRIA .widgetTitle250 h1 {
+	float: left;
+	margin-left: 10px;
+}
+
+.cityRIA .widgetButBlock {
+	float: right;
+	margin-right: 8px;
+}
+
+.cityRIA .widgetBlock {
+	background: none repeat scroll 0% 0% #FFF;
+	border: 1px solid #B5D1E3;
+}
+.cityRIA .widgetBlock_city {
+	background: none repeat scroll 0% 0% #FFF;
+	border: 1px solid #B5D1E3;
+}
+
+.seledCity {
+	padding: 5px 5px 0px;
+	height: auto !important;
+	min-height: 25px;
+	line-height: 22px;
+}
+.seledCity_city {
+	padding: 5px 5px 0px;
+	height: auto !important;
+	min-height: 25px;
+	line-height: 22px;
+}
+
+.cityRIA .widgetBlock .pCityTitB {
+	clear: both;
+	padding-left: 5px;
+	background: url(myJqueryCityImages/index.png) no-repeat scroll 0px -166px transparent;
+	text-align: left;
+	height: 19px;
+	margin: 1px 0px 1px 5px;
+	line-height: 19px;
+}
+.cityRIA .widgetBlock_city .pCityTitB_city {
+	clear: both;
+	padding-left: 5px;
+	background: url(myJqueryCityImages/index.png) no-repeat scroll 0px -166px transparent;
+	text-align: left;
+	height: 19px;
+	margin: 1px 0px 1px 5px;
+	line-height: 19px;
+	display:block;
+}
+
+.cityRIA .widgetBlock .pCityItemB {
+	width: auto;
+	clear: both;
+	padding-bottom: 5px;
+}
+.cityRIA .widgetBlock_city .pCityItemB_city {
+	width: auto;
+	clear: both;
+	padding-bottom: 5px;
+}
+
+.cityRIA .widgetBlock .widgetTabCB {
+	margin-left: 30px;
+}
+
+.cityRIA .widgetBlock .pCityItemB {
+}
+.cityRIA .widgetBlock_city .pCityItemB_city {
+}
+
+.pCityItemB table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+.pCityItemB_city table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+.widgetTabC {
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+.widgetTabC_city {
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+
+.cityRIA .widgetBlock table {
+	width: 100%;
+	margin: 0px;
+	border-collapse: separate;
+}
+.cityRIA .widgetBlock_city table {
+	width: 100%;
+	margin: 0px;
+	border-collapse: separate;
+}
+
+.cityRIA .mOutItem,.cityRIASubJobname .mOutItem {
+	background-color: transparent;
+}
+
+.cityRIA .widgetTabC_city tr {
+	line-height: 16px;
+}
+
+.cityRIA .widgetTabC td {
+	padding: 6px !important;
+}
+
+.cityRIA .widgetBlock td {
+	border: 2px solid #FFFFFF;;
+	padding: 3px 2px;
+	text-align: left;
+}
+.cityRIA .widgetBlock_city td {
+	border: 2px solid #FFFFFF;;
+	padding: 3px 2px;
+	text-align: center;
+}
+
+.cityRIA .widgetBlock td span,.cityRIA .widgetBlock td label {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.cityRIA .widgetBlock_city td span,.cityRIA .widgetBlock_city td label {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.cityRIA .widgetBlock label.noselItem {
+	cursor: pointer;
+}
+.cityRIA .widgetBlock_city label.noselItem {
+	cursor: pointer;
+}
+
+.cityRIASubJobname input {
+	border: 0px none;
+	background: none repeat scroll 0px center transparent;
+}
+
+.cityRIA input,.cityRIASub input,.cityRIASubJobname input {
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+.cityRIA .blurItem {
+	background-image: url(myJqueryCityImages/index_sj_iconplus.gif);
+	background-repeat: no-repeat;
+	background-position: 4px center;
+	text-indent: 20px;
+	padding-top: 3px !important;
+}
+.cityRIA .blurItem_city {
+	padding-top: 3px !important;
+}
+
+.cityRIA .widgetBlock td span.availItem {
+	height: 20px;
+	overflow: hidden;
+}
+.cityRIA .widgetBlock_city td span.availItem_city {
+	height: 20px;
+	overflow: hidden;
+}
+
+
+.cityRIA .widgetBlock td span.availItem {
+	cursor: pointer;
+}
+.cityRIA .widgetBlock_city td span.availItem_city {
+	cursor: pointer;
+}
+.cityRIA .widgetBlock_city td span.availItem_city:hover {
+	color: #fff;
+}
+.cityRIA .widgetBlock_city td:hover {
+	background-color: #3397D5;
+}
+
+.cityRIA .widgetBlock td span,.cityRIA .widgetBlock_city td label {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.cityRIA .widgetBlock_city td span,.cityRIA .widgetBlock_city td label {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.cityRIA .widgetBlock .pCityTitB {
+	clear: both;
+	padding-left: 5px;
+	background: url(myJqueryCityImages/index.png) no-repeat scroll 0px -166px transparent;
+	text-align: left;
+	height: 19px;
+	margin: 1px 0px 1px 5px;
+	line-height: 19px;
+}
+.cityRIA .widgetBlock_city .pCityTitB_city {
+	clear: both;
+	padding-left: 5px;
+	background: url(myJqueryCityImages/index.png) no-repeat scroll 0px -166px transparent;
+	text-align: left;
+	height: 19px;
+	margin: 1px 0px 1px 5px;
+	line-height: 19px;
+}
+
+.cityRIA .widgetButBlock a,.cityRIASubJobname .widgetButBlock a {
+	text-decoration: none !important;
+	background: url(myJqueryCityImages/index.png) no-repeat scroll -317px -90px
+		transparent;
+	width: 60px;
+	height: 23px;
+	display: inline-block;
+	padding: 0px;
+	text-align: center;
+	line-height: 23px;
+}
+
+.cityRIA .widgetButBlock a.orgButton:hover,.cityRIASubJobname .widgetButBlock a.orgButton:hover
+	{
+	background-position: -317px -186px;
+}
+
+.cityRIA .widgetBlock .pCityTitB {
+	clear: both;
+	padding-left: 5px;
+	background: url(myJqueryCityImages/index.png) no-repeat scroll 0px -166px transparent;
+	text-align: left;
+	height: 19px;
+	margin: 1px 0px 1px 5px;
+	line-height: 19px;
+}
+.cityRIA .widgetBlock_city .pCityTitB_city {
+	clear: both;
+	padding-left: 5px;
+	background: url(myJqueryCityImages/index.png) no-repeat scroll 0px -166px transparent;
+	text-align: left;
+	height: 19px;
+	margin: 1px 0px 1px 5px;
+	line-height: 19px;
+}
+
+.cityRIA .widgetBlock .pIconMinus {
+	width: 14px;
+	height: 14px;
+	background: url(myJqueryCityImages/index_sj_iconminus.gif) no-repeat scroll 0% 0%
+		transparent;
+	cursor: pointer;
+	margin-right: 6px;
+	display: inline-block;
+	margin-top: 1px;
+}
+.cityRIA .widgetBlock_city .pIconMinus_city {
+	width: 14px;
+	height: 14px;
+	background: url(myJqueryCityImages/index_sj_iconminus.gif) no-repeat scroll 0% 0%
+		transparent;
+	cursor: pointer;
+	margin-right: 6px;
+	display: inline-block;
+	margin-top: 1px;
+}
+
+.cityRIASubJobname {
+    position: absolute;
+    z-index: 1000;
+    visibility: hidden;
+    top: -100px;
+    left: -100px;
+    background: none repeat scroll 0% 0% #FFF;
+    border-left: 2px solid #C7C7C7;
+    border-right: 2px solid #C7C7C7;
+    padding: 0px;
+    width: 346px;
+}
+.cityRIASubCity {
+    background: url(myJqueryCityImages/subpopupdivbg_l.gif) no-repeat scroll right top #F3FAFF;
+    border-bottom: 2px solid #BDD6E6;
+    padding-top: 2px !important;
+}
+.paddingBlock:after {
+    content: ".";
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+.cityRIASubCity span {
+    display: block;
+    float: left;
+    min-width: 107px;
+    height: 21px;
+    line-height: 21px;
+    overflow: hidden;
+    margin-right: 5px;
+}
+.cityRIASubJobname label.noselItem {
+    cursor: pointer;
+}
+.cityRIASubCity label.noselItem {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+.cityRIASubJobname input {
+    border: 0px none;
+    background: none repeat scroll 0px center transparent;
+}
+.cityRIA input, .cityRIASub input, .cityRIASubJobname input {
+    margin-right: 3px;
+    vertical-align: middle;
+}
+.cityRIA .focusItemTop{border:#c7c7c7 2px solid!important;border-bottom:#fff 2px solid!important;background:#E8F2FE url(myJqueryCityImages/index_sj_iconminus.gif) no-repeat 4px center!important;text-indent:20px;background-color:#F3FAFF !important;padding-top:3px!important}
+.cityRIA .focusItemBottom{border:#c7c7c7 2px solid!important;border-top:#fff 2px solid!important;background:#E8F2FE url(myJqueryCityImages/index_sj_iconminus.gif) no-repeat 4px center!important;text-indent:20px;background-color:#F3FAFF !important;padding-top:3px!important}
+.cityRIA .clear {
+    clear: both;
+    height: 0px;
+    line-height: 0;
+    visibility: hidden;
+}
+.cityRIASubJobname .clear{
+	clear: both;
+    height: 0px;
+    line-height: 0;
+    visibility: hidden;
+}

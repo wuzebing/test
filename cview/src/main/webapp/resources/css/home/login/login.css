@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* CSS Document */
+/*
+ * @author
+ * @copyright 2014
+ * discrible
+ */
+
+/*登录页面*/
+.login_box { height:512px; width:100%; background: #b2daf8 url(../../images/loginbg.png) center no-repeat; background-size:cover; border-top:3px solid #ff7d03}
+.longlogin { width:371px; height:390px; overflow:hidden; background: #e1f1fc url(../../images/longloginbg.png) right top no-repeat; margin:50px 60px 0 0;}
+.longlogin h2 { padding:27px 0 0 30px;}
+.longlogin .china { font-size:24px; color:#424343}
+.longlogin .en { font-size:12px; color:#424343}
+.loginform { padding:20px 0 25px 30px; background:url(../../images/loginformline.png) center bottom no-repeat}
+.loginform label { display:block; overflow:hidden}
+.loginform input { margin-bottom:10px;}
+.loginform .usernamebg { background:url(../../images/icon.png) 0 0 no-repeat; width:41px; height:38px; display:inline-block}
+.loginform .username { font-size:14px; color:#2d2d2d; height:36px; line-height:36px; display:inline-block; background:#faffbd; padding:0 0 0 15px; width:260px;  border:1px solid #8bc3e7; border-radius:0 3px 3px 0; border-left:none}
+.loginform .posswordbg { background:url(../../images/icon.png) 0 -50px no-repeat; width:41px; height:38px; display:inline-block}
+.loginform .possword {font-size:14px; color:#2d2d2d; width:41px; height:36px;  line-height:36px; display:inline-block; background:#faffbd; padding:0 0 0 15px; width:260px;  border:1px solid #8bc3e7; border-radius:0 3px 3px 0; border-left:none}
+.loginform .valid {font-size:14px; color:#2d2d2d;width:41px; height:38px; display:inline-block; background:#faffbd; padding:0 0 0 15px; width:110px;border:1px solid #8bc3e7; border-radius:0 3px 3px 0;}
+.loginform .validbg { display:inline-block; }
+.loginform .toggle { display:inline-block; color:#1a65a4; margin:10px 0 0 10px;}
+.loginform .checkbox { display:inline-block; margin:2px 3px 0 0}
+.loginform .forget { display:inline-block}
+.submit_box { padding:20px 0 0 30px }
+.submit_box .submit { font-size:24px; color:#fff; background:#69b3f2; width:312px; height:45px; line-height:45px; text-align:center; border-radius:20px; display:inline-block}
+.entries { padding:12px 34px 0 35px;}
+.entries a { color:#ef7401}
+
+
