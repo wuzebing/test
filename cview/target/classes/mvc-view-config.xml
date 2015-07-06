@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 配置内容协商视图解析 -->
+	<bean id="contentNegotiatingViewResolver"
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<!-- 设置内容协商管理器 -->
+		<property name="contentNegotiationManager" ref="contentNegotiationManager"></property>
+		<!-- 设置默认视图 -->
+		<property name="defaultViews">
+			<list>
+				<ref bean="mappingJacksonJsonView" />
+				<!-- 
+				<ref bean="marshallingView" />
+				 -->
+			</list>
+		</property>
+		<!-- 设置视图解析器 -->
+		<property name="viewResolvers">
+			<list>
+				<ref bean="defalutViewResolver" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="defalutViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	<!-- JSON视图 -->
+	<bean id="mappingJacksonJsonView"
+		class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+	</bean>
+
+	<!--
+		XML视图 <bean id="marshallingView"
+		class="org.springframework.web.servlet.view.xml.MarshallingView">
+		<property name="marshaller"> <bean
+		class="org.springframework.oxm.xstream.XStreamMarshaller"> </bean>
+		</property> </bean>
+	-->
+
+	<bean id="contentNegotiationManager"
+		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="mediaTypes">
+			<props>
+				<prop key="json">application/text;charset=utf-8</prop>
+				<prop key="xml">application/xml;charset=utf-8</prop>
+				<prop key="do">application/json;charset=utf-8</prop>
+			</props>
+		</property>
+		<property name="ignoreAcceptHeader" value="true"></property>
+		<!-- 设置默认的 ContentType为application/json-->
+		<property name="defaultContentType" value="application/text"></property>
+	</bean>
+
+</beans>
