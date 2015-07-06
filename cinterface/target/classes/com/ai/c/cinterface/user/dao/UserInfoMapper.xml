@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.c.cinterface.user.dao.UserInfoMapper">
+
+	<!-- <cache /> -->
+	<!-- <select id="getCategory" parameterType="string" resultType="Category"> 
+		SELECT CATID AS categoryId, NAME, DESCN AS description FROM CATEGORY WHERE 
+		CATID = #{categoryId} </select> -->
+
+	<!-- -->
+	<resultMap type="com.ai.c.cinterface.user.entity.UserInfo"
+		id="userInfoMapper">
+		<result column="user_id" property="userId" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="user_password" property="userPassword"
+			jdbcType="VARCHAR" />
+		<result column="user_type" property="userType" jdbcType="VARCHAR" />
+		<result column="pwd_type" property="pwdType" jdbcType="VARCHAR" />
+		<result column="user_attribute" property="userAttribute"
+			jdbcType="VARCHAR" />
+		<result column="status_id" property="statusId" jdbcType="VARCHAR" />
+		<result column="sys_id" property="sysId" jdbcType="VARCHAR" />
+		<result column="datasource" property="dataSource" jdbcType="VARCHAR" />
+		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="updatetime" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<resultMap type="com.ai.c.cinterface.user.entity.UserInfoStatusHistory"
+		id="userInfoStatusHistoryMapper">
+		<result column="user_id" property="userId" jdbcType="CHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="user_status_before" property="userStatusBefore" jdbcType="VARCHAR" />
+		<result column="user_status_now" property="userStatusNow" jdbcType="VARCHAR" />
+		<result column="ipaddress" property="ipAddress" jdbcType="VARCHAR" />
+		<result column="sys_id" property="sysId" jdbcType="CHAR" />
+		<result column="operatorid" property="operatorId" jdbcType="CHAR" />
+		<result column="operatorname" property="operatorName" jdbcType="VARCHAR" />
+		<result column="datasource" property="dataSource" jdbcType="CHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		user_id, user_name, user_type, pwd_type, user_attribute,status_id, sys_id, datasource, createtime, updatetime,user_password
+	</sql>	
+	<insert id="insertUserInfo" parameterType="com.ai.c.cinterface.user.entity.UserInfo">
+		insert into user_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="userName != null">
+				user_name,
+			</if>
+			<if test="userPassword != null">
+				user_password,
+			</if>
+			<if test="userType != null">
+				user_type,
+			</if>
+			<if test="pwdType != null">
+				pwd_type,
+			</if>
+			<if test="userAttribute != null">
+				user_attribute,
+			</if>
+			<if test="statusId != null">
+				status_id,
+			</if>
+			<if test="sysId != null">
+				sys_id,
+			</if>
+			<if test="dataSource != null">
+				datasource,
+			</if>
+			<if test="createTime != null">
+				createtime,
+			</if>
+			<if test="updateTime != null">
+				updatetime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				#{userId,jdbcType=VARCHAR},
+			</if>
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="userPassword != null">
+				#{userPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="userType != null">
+				#{userType,jdbcType=VARCHAR},
+			</if>
+			<if test="pwdType != null">
+				#{pwdType,jdbcType=VARCHAR},
+			</if>
+			<if test="userAttribute != null">
+				#{userAttribute,jdbcType=VARCHAR},
+			</if>
+			<if test="statusId != null">
+				#{statusId,jdbcType=VARCHAR},
+			</if>
+			<if test="sysId != null">
+				#{sysId,jdbcType=VARCHAR},
+			</if>
+			<if test="dataSource != null">
+				#{dataSource,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	
+	<insert id="insertUserInfoStatusHistory" parameterType="com.ai.c.cinterface.user.entity.UserInfoStatusHistory">
+		insert into user_info_statushistory
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="userName != null">
+				user_name,
+			</if>
+			<if test="userStatusBefore != null">
+				user_status_before,
+			</if>
+			<if test="userStatusNow != null">
+				user_status_now,
+			</if>
+			<if test="ipAddress != null">
+				ipaddress,
+			</if>
+			<if test="sysId != null">
+				sys_id,
+			</if>
+			<if test="operatorId != null">
+				operatorid,
+			</if>
+			<if test="operatorName != null">
+				operatorname,
+			</if>
+			<if test="dataSource != null">
+				datasource,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+			<if test="createTime != null">
+				createtime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				#{userId,jdbcType=CHAR},
+			</if>
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="userStatusBefore != null">
+				#{userStatusBefore,jdbcType=TIMESTAMP},
+			</if>
+			<if test="userStatusNow != null">
+				#{userStatusNow,jdbcType=VARCHAR},
+			</if>
+			<if test="ipAddress != null">
+				#{ipAddress,jdbcType=CHAR},
+			</if>
+			<if test="sysId != null">
+				#{sysId,jdbcType=TIMESTAMP},
+			</if>
+			<if test="operatorId != null">
+				#{operatorId,jdbcType=TIMESTAMP},
+			</if>
+			<if test="operatorName != null">
+				#{operatorName,jdbcType=CHAR},
+			</if>
+			<if test="dataSource != null">
+				#{dataSource,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=CHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+	
+	
+	<select id="queryUserInfoByUsername" parameterType="string"
+		resultMap="userInfoMapper">
+		SELECT
+			user.user_id, user.user_name, user.user_type, user.pwd_type, user.user_attribute,
+			user.status_id, user.sys_id, user.datasource, user.createtime, 
+			user.updatetime,user.user_password,job.JOB_ID
+		from user_info user
+		left join ai_user_job job on user.user_id = job.user_ID
+		WHERE
+		user.user_name = #{userName}
+	</select>
+	
+	<select id="queryUserNameCount" parameterType="string"
+		resultType="int">
+		SELECT count(1)
+		from user_info
+		WHERE  user_name = #{userName}
+	</select>
+	
+	<select id="queryUserInfoByUserId" parameterType="string"
+		resultMap="userInfoMapper">
+		SELECT
+			<include refid="Base_Column_List" />
+		from user_info
+		WHERE
+		user_id = #{userId}
+	</select>
+	
+	<update id="updateUserInfo" parameterType="com.ai.c.cinterface.user.entity.UserInfo">
+		update user_info 
+		<set>
+			<if test="userName!=null">
+				user_name = #{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="userPassword!=null">
+				user_password = #{userPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="userAttribute!=null">
+				user_attribute= #{userAttribute,jdbcType=VARCHAR},
+			</if>
+			<if test="dataSource!=null">
+				datasource= #{dataSource,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime!=null">
+				createtime= #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime!=null">
+				updatetime= #{updateTime,jdbcType=TIMESTAMP}
+			</if>
+		</set>
+			where user_id=#{userId,jdbcType=VARCHAR}
+	</update>
+</mapper>
