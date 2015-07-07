@@ -1,0 +1,351 @@
+a{
+	font-family: "microsoft yahei",arial,ËÎÌו;
+	font-size: 12px;
+	cursor: pointer;
+	color:#9A9A9A;
+}
+b{
+	color:#9A9A9A;
+}
+body{
+	background-color: #EEE;
+}
+.top_context{
+	height: 28px;
+	line-height: 25px;
+	background-color: #FFF;
+	position:  relative; 
+	z-index: 100;
+	background-color:#fff;
+}
+.top_menu{
+	float: right;
+	display: inline;
+}
+.top_menu .top_ul li {
+	float:left;
+}
+.top_menu .top_ul li a {
+	padding:0px 10px;
+}
+.top_menu .top_ul li a:hover{
+	color:#EB0019;
+}
+.back_home:hover{
+	color:#EB0019;
+}
+.header{
+	position: relative;
+	z-index: 90;
+}
+.header .header_content{
+	height: 61px;
+	background: #D43925;
+	position: relative;
+	z-index: 100;
+}
+.header .header_content .logo{
+	width: 232px;
+	height: 51px;
+	margin-top: 6px;
+	background: transparent url("../images/logo.png") no-repeat scroll 0% 0%;
+	margin-left: 22px;
+	display: inline-block;
+}
+.header .header_content .menu{
+	position: absolute;
+	left: 271px;
+	top: 0px;
+	padding-right: 1px;
+}
+.header .header_content .menu li{
+	float: left;
+	padding-left: 1px;
+}
+.header .header_content .menu li a{
+	width: 101px;
+	background: transparent url("../images/menu.png") no-repeat scroll 0% 0%;
+	background-position: 0px top;
+	display:block;
+	height: 61px;
+}
+.header .header_content .menu li a:hover{
+	width: 101px;
+	background: transparent url("../images/menu.png") no-repeat scroll 0% 0%;
+	background-position: -102px -61px;
+	display:block;
+	height: 61px;
+}
+.content{
+	padding-top: 1px;
+}
+.content .search_con{
+	height: 32px;
+	line-height: 32px;
+	color: #CC0015;
+	text-align: left;
+	position: relative;
+	z-index: 89;
+}
+.content .search_con .search{
+	position: absolute;
+	right: 0px;
+	background-position: left -50px;
+	background-repeat: repeat-x;
+	z-index: 81;
+	top: 3px;
+}
+.content .search_con .search .boxbg{
+	padding-right: 30px;
+	width: 170px;
+	overflow: hidden;
+	height: 25px;
+}
+.content .search_con .search .inner{
+	line-height: 24px;
+	width: 137px;
+	padding-left: 23px;
+	height: 25px;
+}
+.content .search_con .search .inner .search_txt{
+	border: 0px none;
+	background: #ffffff;
+	font-size: 12px;
+	transition: width 0.2s linear 0s;
+	padding: 3px 0px;
+	line-height: 16px;
+	height: 16px;
+	width: 137px;
+	margin: 0px;
+	cursor: text;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+.content .search_con .search .inner .btn_search{
+	width: 38px;
+	position: absolute;
+	right:-7px;
+	top: 0px;
+	height: 25px;
+	background: transparent url("../Nest/img/credit/searchbar.png") no-repeat scroll 0% 0%;
+}
+
+.content .search_con .search .inner .btn_search:hover{
+	color:#EB0019;
+}
+
+.category{
+	float: left;
+	margin-right: -100%;
+	width: 188px;
+	height: 388px;
+	border: 1px solid #D8D8D8;
+	position: relative;
+	z-index: 90;
+	background: #FFF url("../images/catebg.png") repeat-y scroll 3px top;
+}
+.category h2{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 5px 14px 2px;
+	color: #666;
+}
+.category h2 a{
+	color: #666;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: normal;
+}
+.category .menu li{
+	position: relative;
+	height: 40px;
+	width: 188px;
+}
+.category .menu li a:hover{
+	color:#EB0019;
+}
+.category .menu .img{
+	padding-left: 45px;
+	height: 24px;
+	line-height: 24px;
+	display: block;
+	font-size: 12px;
+	color: #888;
+	background: transparent url("../images/gongju.png") no-repeat scroll 0% 0%;
+	left: 13px;
+	position: absolute;
+	top: 7px;
+}
+.category .menu a{
+	line-height:40px;
+	margin-left:50px;
+}
+
+.content .banner{
+	position: relative;
+	overflow: hidden;
+	width: 790px;
+	height: 390px;
+	float: right;
+	background: transparent url("../images/banner_01.jpg") no-repeat scroll 0% 0%;
+}
+
+.product{
+	top: 10px;
+	text-align: left;
+	position:relative;
+}
+.product .p_left{
+	width: 650px;
+	float: left;
+	display: inline;
+	text-align: left;
+}
+.product .p_left .pro1 table{
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+.new_pro{
+	width: 648px;
+	position: relative;
+	background-color: #FFF;
+}
+.new_pro h2{
+	height: 30px;
+	line-height: 30px;
+	padding-left: 15px;
+	color: #D10406;
+	font-weight: normal;
+	border-bottom: 2px solid #D40A0E
+}
+.new_pro .pro_2{
+	position: relative;
+	overflow: hidden;
+	width: 648px;
+	height: 296px;
+}
+.new_pro .pro_2 .pro{
+	padding: 15px;
+	width: 186px;
+	position: relative;
+	background: none;
+	height: 260px;
+}
+.new_pro .pro_2 .pro .img {
+    text-align: center;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+}
+.new_pro .pro_2 .pro .img img {
+    margin: 0px auto;
+    width: 160px;
+    height: 160px
+}
+.new_pro .pro_2 .pro .tit {
+    height: 36px;
+    line-height: 18px;
+    overflow: hidden;
+    margin: 4px 0px
+}
+.credit {
+    color: #E10023;
+    font-size: 14px;
+    font-family: arial,"microsoft yahei";
+    display: inline-block;
+    line-height: 18px;
+    font-weight: bold;
+}
+.new_pro .pro_2 .total {
+    color: #888;
+}
+.price {
+    font-size: 14px;
+    font-family: arial,"microsoft yahei";
+    display: inline-block;
+    line-height: 18px;
+    padding-left: 10px;
+    color: #888;
+	font-weight: normal;
+}
+
+.p_right{
+	width: 320px;
+	float: right;
+	display: inline;
+}
+.p_right .like{
+	width: 318px;
+	overflow: hidden;
+	position: relative;
+	background-color: #FFF;
+}
+.p_right .like h2{
+	height: 31px;
+	color: #333;
+	margin: 0px 3px;
+	padding-left: 12px;
+	border-bottom: medium none;
+	line-height:31px;
+	font-weight: 800;
+}
+.hot_pro{
+	top: 6px;
+	padding-bottom: 5px;
+	margin: 0px 3px;
+	position: relative;
+}
+.hot_pro li{
+	height: 55px;
+	width: 172px;
+	padding: 17px 5px 7px 135px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	border-top: 1px solid #D40A0E;
+}
+.hot_pro li .num{
+	top: 27px;
+	color: #FFF;
+	position: absolute;
+	left: 18px;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	overflow: hidden;
+	text-align: center;
+	font-size: 14px;
+	font-family: Arial;
+	line-height: 22px;
+	background-color:#25B708;
+}
+.hot_pro li .pro_pic{
+	cursor: default;
+	background:url(../images/pic_001.jpg);
+	display: block;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left: 60px;
+	cursor:pointer;
+}
+.hot_pro li .pro_title{
+	margin-top: 0px;
+	margin-bottom: 6px;
+	font-size: 14px;
+	height: 18px;
+	overflow: hidden;
+	line-height: 18px;
+	margin: 4px 0px;
+	cursor:pointer;
+	color:#9A9A9A;
+}
+.hot_pro li .pro_title:hover{
+	color:#EB0019;
+}
+.hot_pro li .price{
+	margin-right: 20px;
+}
+.hot_pro li .price span{
+	color:#D40A0E;
+}

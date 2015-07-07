@@ -1,0 +1,251 @@
+@charset "utf-8";
+/*用户中心登录页begin*/
+body {
+	color: #444;
+}
+
+a {
+	color: #444;
+}
+/*新版头部样式begin*/
+.header {
+	margin-left: 20px;
+	width: 280px;
+	height: 45px;
+	text-align: center;
+	background-color: #d43925;
+	line-height: 45px;
+	color: #fff;
+	font-size: 18px;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 199;
+}
+
+.header .back {
+	width: 12px;
+	height: 17px;
+	background: url(../images/icon/base-icon.png) no-repeat 0 0;
+	float: left;
+	display: inline-block;
+	margin-top: 14px;
+	margin-left: 20px;
+	padding: 0;
+	*display: inline;
+	*zoom: 1;
+}
+
+.header .search {
+	width: 20px;
+	height: 20px;
+	background: url(../images/icon/base-icon.png) no-repeat -61px 0;
+	float: right;
+	display: inline-block;
+	margin-top: 12px;
+	margin-right: 18px;
+	padding: 0;
+	*display: inline;
+	*zoom: 1;
+}
+
+.header .headline {
+	height: 45px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+@media ( max-width :640px) {
+	.header .headline {
+		max-width: 220px;
+	}
+}
+
+@media ( min-width :641px) and (max-width:960px) {
+	.header .headline {
+		max-width: 440px;
+	}
+}
+
+@media ( min-width :961px) {
+	.header .headline {
+		max-width: 660px;
+	}
+}
+
+section {
+	margin-top: 45px;
+}
+/*新版头部样式end*/
+.login {
+}
+
+.login .form {
+	width: 282px;
+	margin: 0 auto;
+	padding: 20px 19px;
+	overflow: hidden;
+}
+
+.login .sign {
+	margin-bottom: 14px;
+}
+
+.sign .signup {
+	width: 66px;
+	height: 34px;
+	background: url(../images/icon/login.png) no-repeat -19px -65px;
+	line-height: 34px;
+	text-align: center;
+	color: #7c7c7c;
+	float: left;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.sign #btn_moblogin {
+	background-color: transparent;
+	line-height: 34px;
+	font-size: 12px;
+	color: #a1a1a1;
+	background-color: transparent;
+	float: right;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.login .user-info {
+	width: 282px;
+	height: 42px;
+	background: url(../images/icon/login.png) no-repeat;
+}
+
+.user-info.name {
+	margin-bottom: 10px;
+	background-position: -19px -113px;
+}
+
+.user-info.pwd {
+	margin-bottom: 14px;
+	background-position: -19px -165px;
+}
+
+.login .user-info input {
+	width: 241px;
+	height: 42px;
+	padding-left: 41px;
+	font-size: 12px;
+	color: #afafaf;
+	background-color: transparent;
+	line-height: 42px;
+}
+
+.login .enter input {
+	width: 280px;
+	height: 40px;
+	margin: 0 auto 24px;
+	background: url(../images/icon/login.png) no-repeat -20px -221px;
+}
+
+.login li .auto {
+	color: #7d7d7d;
+	vertical-align: top;
+	line-height: 34px;
+	float: left;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.auto .check {
+	width: 18px;
+	height: 18px;
+	background: url(../images/icon/login.png) no-repeat -28px -293px;
+	margin: 8px 5px auto 9px;
+}
+
+.login li .getpwd {
+	width: 82px;
+	height: 34px;
+	color: #7c7c7c;
+	background: url(../images/icon/login.png) no-repeat -219px -285px;
+	line-height: 34px;
+	text-align: center;
+	float: right;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.login .sinn {
+	width: 242px;
+	height: 46px;
+	margin: 40px auto 0;
+	background: url(../images/icon/login.png) no-repeat -39px -362px;
+}
+
+.login .sinn a {
+	height: 46px;
+	float: left;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.login .sinn a.alipay {
+	width: 56px;
+	margin-left: 29px;
+}
+
+.login .sinn a.sina {
+	width: 41px;
+	margin: 0 29px 0 31px;
+}
+
+.login .sinn a.qq {
+	width: 37px;
+}
+.clearfix:after {
+    clear: both;
+    display: block;
+    content: "...";
+    visibility: hidden;
+    height: 0px;
+    font-size: 0px;
+}
+.login_contain{
+	width:326px;
+	position: relative;
+	z-index: 4;
+	width: 306px;
+	background: none repeat scroll 0% 0% #FFF;
+	padding: 20px;
+	overflow: visible;
+	float: right;
+	top: 40px;
+}
+.content .warp{
+	position: relative;
+	height: 475px;
+	margin: 10px 0px 20px;
+	z-index: 5;
+}
+.content .login_banner{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 475px;
+	background: none repeat scroll 0% 0% #E93854;
+}
+.content .login_banner .i_inner{
+	position: relative;
+	z-index: 3;
+	height: 475px;
+}
