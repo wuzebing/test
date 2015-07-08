@@ -7,8 +7,8 @@
 		id="userLoginInfoMapper">
 		<result column="user_id" property="userId" jdbcType="VARCHAR" />
 		<result column="user_name" property="userName" jdbcType="VARCHAR" />
-		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
-		<result column="ipaddress" property="ipaddress" jdbcType="VARCHAR" />
+		<result column="create_time" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="ip_address" property="ipaddress" jdbcType="VARCHAR" />
 		<result column="from_sys_id" property="fromSysId" jdbcType="VARCHAR" />
 		<result column="auth_sys_id" property="authSysId" jdbcType="VARCHAR" />
 		<result column="to_sys_id" property="toSysId" jdbcType="VARCHAR" />
@@ -17,11 +17,11 @@
 		<result column="user_type" property="userType" jdbcType="VARCHAR" />
 		<result column="user_attribute" property="userAttribute"
 			jdbcType="VARCHAR" />
-		<result column="datasource" property="datasource" jdbcType="VARCHAR" />
-		<result column="authstyle" property="authstyle" jdbcType="VARCHAR" />
+		<result column="data_source" property="datasource" jdbcType="VARCHAR" />
+		<result column="auth_style" property="authstyle" jdbcType="VARCHAR" />
 		<result column="login_source" property="loginSource" jdbcType="VARCHAR"/>
 		<result column="result_code" property="resultCode" jdbcType="INTEGER" />
-		<result column="hostname" property="hostname" jdbcType="VARCHAR" />
+		<result column="host_name" property="hostname" jdbcType="VARCHAR" />
 	</resultMap>
 
 	<insert id="loginSuccess" parameterType="com.ai.c.cinterface.user.entity.UserLoginInfo">
@@ -34,10 +34,10 @@
 				user_name,
 			</if>
 			<if test="createtime != null">
-				createtime,
+				create_time,
 			</if>
 			<if test="ipaddress != null">
-				ipaddress,
+				ip_address,
 			</if>
 			<if test="fromSysId != null">
 				from_sys_id,
@@ -58,16 +58,16 @@
 				user_attribute,
 			</if>
 			<if test="datasource != null">
-				datasource,
+				data_source,
 			</if>
 			<if test="authstyle != null">
-				authstyle,
+				auth_style,
 			</if>
 			<if test="resultCode != null">
 				result_code,
 			</if>
 			<if test="hostname != null">
-				hostname,
+				host_name,
 			</if>
 			<if test="loginSource != null">
 				login_source,
@@ -123,7 +123,7 @@
 	</insert>
 	
 	<insert id="loginFail" parameterType="com.ai.c.cinterface.user.entity.UserLoginInfo">
-		insert into user_info_logonfail
+		insert into user_info_login_fail
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="userId != null">
 				user_id,
@@ -132,10 +132,10 @@
 				user_name,
 			</if>
 			<if test="createtime != null">
-				createtime,
+				create_time,
 			</if>
 			<if test="ipaddress != null">
-				ipaddress,
+				ip_address,
 			</if>
 			<if test="fromSysId != null">
 				from_sys_id,
@@ -156,16 +156,16 @@
 				user_attribute,
 			</if>
 			<if test="datasource != null">
-				datasource,
+				data_source,
 			</if>
 			<if test="authstyle != null">
-				authstyle,
+				auth_style,
 			</if>
 			<if test="resultCode != null">
 				result_code,
 			</if>
 			<if test="hostname != null">
-				hostname,
+				host_name,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">

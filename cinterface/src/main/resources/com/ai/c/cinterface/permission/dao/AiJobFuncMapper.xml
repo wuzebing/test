@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.c.cinterface.permission.dao.AiJobFuncMapper">
+
+	<resultMap id="jobMenuInfo" type="com.ai.c.cinterface.permission.entity.JobMenuInfo">
+		<result column="func_id" property="funcId" />
+		<result column="func_name" property="name" />
+		<result column="parent_id" property="parentId" />
+		<result column="job_id" property="jobId"/>
+		<result column="is_assign" property="isAssign" />
+	</resultMap>
+	
+	<!-- 查询功能菜单 -->
+	<select id="queryAllAndAssignedFuncs" parameterType="map" resultMap="jobMenuInfo">
+		select 
+			menu.func_id	as func_id,
+			menu.func_name	as func_name,
+			menu.parent_id	as parent_id,
+			func.job_id		as job_id,
+			IFNULL(func.job_id, 0) as is_assign
+		from (select func_id, job_id from ai_job_func where job_id=#{jobId}) func
+		right join ai_menu menu on func.func_id = menu.func_id
+		where menu.menu_type=#{jobType} 
+		order by menu.menu_order;
+	</select>
+	
+	<!-- 添加功能菜单-->
+	<insert id="insertAiJobFunc" parameterType="com.ai.c.cinterface.permission.entity.AiJobFunc">
+		insert into ai_job_func
+		(
+			func_id, job_id, menu_order, admin_id,admin_name,admin_time 
+		)
+		values
+		(
+			#{funcId}, #{jobId}, #{menuOrder}, #{adminId}, #{adminName}, #{adminTime}
+		)
+	</insert>
+	
+	<!-- 删除功能菜单 -->
+	<delete id="deleteAiJobFuncByFunc" parameterType="string">
+		delete from ai_job_func where func_id=#{funcId}
+	</delete>
+	
+	<!-- 批量删除角色菜单关联记录  -->
+	<delete id="deleteAiJobFuncByJob" parameterType="string">
+		delete from ai_job_func where job_id=#{jobId}
+	</delete>
+</mapper>

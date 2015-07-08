@@ -46,7 +46,7 @@
 	<!-- 以下配置SpringMVC的拦截器 -->
 	<mvc:interceptors>
 		<bean id="requestResponseInterceptor" class="com.ai.c.base.interceptor.LogInterceptor"></bean>
-	<!--  	<bean id="authInterceptor" class="com.ai.c.base.interceptor.AuthInterceptor"></bean>-->
+	  	<bean id="authInterceptor" class="com.ai.c.base.interceptor.AuthInterceptor"></bean>
 	</mvc:interceptors>
 
 	<!-- 这样静态资源就可以访问了 -->

@@ -15,21 +15,20 @@ public class UserLoginInfoServiceImpl implements UserLoginInfoService {
 
 	@Autowired
 	private UserLoginInfoMapper userLoginInfoMapper;
-
 	@Override
 	public int loginSuccess(UserInfo userInfo, String ip, String fromSysId,
 			String authSysId, String ToSysId, String loginInterfaceName,
 			int loginResultCode, String hostName, String authstyle,String loginSource) {
 		UserLoginInfo userLoginInfo = UserLoginInfo.fromUserInfo(userInfo);
-		userLoginInfo.setIpaddress(ip);
+		userLoginInfo.setIpAddress(ip);
 		userLoginInfo.setFromSysId(fromSysId);
 		userLoginInfo.setToSysId(ToSysId);
 		userLoginInfo.setAuthSysId(authSysId);
 		userLoginInfo.setInterfaceName(loginInterfaceName);
 		userLoginInfo.setResultCode(loginResultCode);
-		userLoginInfo.setHostname(hostName);
-		userLoginInfo.setAuthstyle(authstyle);
-		userLoginInfo.setCreatetime(new Date());
+		userLoginInfo.setHostName(hostName);
+		userLoginInfo.setAuthStyle(authstyle);
+		userLoginInfo.setCreateTime(new Date());
 		userLoginInfo.setLoginSource(loginSource);
 		return userLoginInfoMapper.loginSuccess(userLoginInfo);
 	}
@@ -44,17 +43,17 @@ public class UserLoginInfoServiceImpl implements UserLoginInfoService {
 		userLoginInfo.setUserName(username);
 		userLoginInfo.setUserType("");
 		userLoginInfo.setUserAttribute("");
-		userLoginInfo.setDatasource("");
+		userLoginInfo.setDataSource("");
 
-		userLoginInfo.setIpaddress(ip);
+		userLoginInfo.setIpAddress(ip);
 		userLoginInfo.setFromSysId(fromSysId);
 		userLoginInfo.setToSysId(ToSysId);
 		userLoginInfo.setAuthSysId(authSysId);
 		userLoginInfo.setInterfaceName(loginInterfaceName);
 		userLoginInfo.setResultCode(loginResultCode);
-		userLoginInfo.setHostname(hostName);
-		userLoginInfo.setAuthstyle(authstyle);
-		userLoginInfo.setCreatetime(new Date());
+		userLoginInfo.setHostName(hostName);
+		userLoginInfo.setAuthStyle(authstyle);
+		userLoginInfo.setCreateTime(new Date());
 
 		return userLoginInfoMapper.loginFail(userLoginInfo);
 	}
@@ -64,15 +63,15 @@ public class UserLoginInfoServiceImpl implements UserLoginInfoService {
 			String fromSysId, String authSysId, String ToSysId,
 			String loginInterfaceName,int resultCode, String hostName, String authstyle) {
 		UserLoginInfo userLoginInfo = UserLoginInfo.fromUserInfo(userInfo);
-		userLoginInfo.setIpaddress(ip);
+		userLoginInfo.setIpAddress(ip);
 		userLoginInfo.setFromSysId(fromSysId);
 		userLoginInfo.setToSysId(ToSysId);
 		userLoginInfo.setAuthSysId(authSysId);
 		userLoginInfo.setInterfaceName(loginInterfaceName);
 		userLoginInfo.setResultCode(resultCode);//密码错误
-		userLoginInfo.setHostname(hostName);
-		userLoginInfo.setAuthstyle(authstyle);
-		userLoginInfo.setCreatetime(new Date());
+		userLoginInfo.setHostName(hostName);
+		userLoginInfo.setAuthStyle(authstyle);
+		userLoginInfo.setCreateTime(new Date());
 
 		return userLoginInfoMapper.loginFail(userLoginInfo);
 

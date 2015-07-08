@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 用户登录日志信息
  * 
- * @author wangpeng
+ * @author LIUQIANMING
  * @time 2014-11-21 下午3:03:40
  * 
  */
@@ -15,18 +15,18 @@ public final class UserLoginInfo implements Serializable{
 	private static final long serialVersionUID = -5694559013486707134L;
 	private String userId;
 	private String userName;
-	private Date createtime;
-	private String ipaddress;
+	private Date createTime;
+	private String ipAddress;
 	private String fromSysId;
 	private String authSysId;
 	private String toSysId;
 	private String interfaceName;
 	private String userType;
 	private String userAttribute;
-	private String datasource;
-	private String authstyle;
+	private String dataSource;
+	private String authStyle;
 	private int resultCode;
-	private String hostname;
+	private String hostName;
 	private String loginSource;
 	
 	public String getLoginSource() {
@@ -57,20 +57,23 @@ public final class UserLoginInfo implements Serializable{
 		this.userName = userName;
 	}
 
-	public Date getCreatetime() {
-		return createtime;
+
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
-	public String getIpaddress() {
-		return ipaddress;
+
+
+	public String getIpAddress() {
+		return ipAddress;
 	}
 
-	public void setIpaddress(String ipaddress) {
-		this.ipaddress = ipaddress;
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
 	}
 
 	public String getFromSysId() {
@@ -121,21 +124,7 @@ public final class UserLoginInfo implements Serializable{
 		this.userAttribute = userAttribute;
 	}
 
-	public String getDatasource() {
-		return datasource;
-	}
-
-	public void setDatasource(String datasource) {
-		this.datasource = datasource;
-	}
-
-	public String getAuthstyle() {
-		return authstyle;
-	}
-
-	public void setAuthstyle(String authstyle) {
-		this.authstyle = authstyle;
-	}
+	
 
 	public int getResultCode() {
 		return resultCode;
@@ -145,21 +134,39 @@ public final class UserLoginInfo implements Serializable{
 		this.resultCode = resultCode;
 	}
 
-	public String getHostname() {
-		return hostname;
+	
+	
+	public String getDataSource() {
+		return dataSource;
 	}
 
-	public void setHostname(String hostname) {
-		this.hostname = hostname;
+	public void setDataSource(String dataSource) {
+		this.dataSource = dataSource;
 	}
-	
+
+	public String getAuthStyle() {
+		return authStyle;
+	}
+
+	public void setAuthStyle(String authStyle) {
+		this.authStyle = authStyle;
+	}
+
+	public String getHostName() {
+		return hostName;
+	}
+
+	public void setHostName(String hostName) {
+		this.hostName = hostName;
+	}
+
 	public static UserLoginInfo fromUserInfo(UserInfo userInfo){
 		UserLoginInfo userLoginInfo = new UserLoginInfo();
 		userLoginInfo.setUserId(userInfo.getUserId());
 		userLoginInfo.setUserName(userInfo.getUserName());
 		userLoginInfo.setUserType(userInfo.getUserType());
 		userLoginInfo.setUserAttribute(userInfo.getUserAttribute());
-		userLoginInfo.setDatasource(userInfo.getDataSource());
+		userLoginInfo.setDataSource(userInfo.getDataSource());
 		return userLoginInfo;
 	}
 

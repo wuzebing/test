@@ -21,9 +21,9 @@
 			jdbcType="VARCHAR" />
 		<result column="status_id" property="statusId" jdbcType="VARCHAR" />
 		<result column="sys_id" property="sysId" jdbcType="VARCHAR" />
-		<result column="datasource" property="dataSource" jdbcType="VARCHAR" />
-		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
-		<result column="updatetime" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="data_source" property="dataSource" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 		<result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
 	</resultMap>
 	
@@ -33,17 +33,17 @@
 		<result column="user_name" property="userName" jdbcType="VARCHAR" />
 		<result column="user_status_before" property="userStatusBefore" jdbcType="VARCHAR" />
 		<result column="user_status_now" property="userStatusNow" jdbcType="VARCHAR" />
-		<result column="ipaddress" property="ipAddress" jdbcType="VARCHAR" />
+		<result column="ip_address" property="ipAddress" jdbcType="VARCHAR" />
 		<result column="sys_id" property="sysId" jdbcType="CHAR" />
-		<result column="operatorid" property="operatorId" jdbcType="CHAR" />
-		<result column="operatorname" property="operatorName" jdbcType="VARCHAR" />
-		<result column="datasource" property="dataSource" jdbcType="CHAR" />
+		<result column="operator_id" property="operatorId" jdbcType="CHAR" />
+		<result column="operator_name" property="operatorName" jdbcType="VARCHAR" />
+		<result column="data_source" property="dataSource" jdbcType="CHAR" />
 		<result column="remark" property="remark" jdbcType="VARCHAR" />
-		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		user_id, user_name, user_type, pwd_type, user_attribute,status_id, sys_id, datasource, createtime, updatetime,user_password
+		user_id, user_name, user_type, pwd_type, user_attribute,status_id, sys_id, data_source, create_time, update_time,user_password
 	</sql>	
 	<insert id="insertUserInfo" parameterType="com.ai.c.cinterface.user.entity.UserInfo">
 		insert into user_info
@@ -73,13 +73,13 @@
 				sys_id,
 			</if>
 			<if test="dataSource != null">
-				datasource,
+				data_source,
 			</if>
 			<if test="createTime != null">
-				createtime,
+				create_time,
 			</if>
 			<if test="updateTime != null">
-				updatetime,
+				update_time,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -135,25 +135,25 @@
 				user_status_now,
 			</if>
 			<if test="ipAddress != null">
-				ipaddress,
+				ip_address,
 			</if>
 			<if test="sysId != null">
 				sys_id,
 			</if>
 			<if test="operatorId != null">
-				operatorid,
+				operator_id,
 			</if>
 			<if test="operatorName != null">
-				operatorname,
+				operator_name,
 			</if>
 			<if test="dataSource != null">
-				datasource,
+				data_source,
 			</if>
 			<if test="remark != null">
 				remark,
 			</if>
 			<if test="createTime != null">
-				createtime,
+				create_time,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -198,8 +198,8 @@
 		resultMap="userInfoMapper">
 		SELECT
 			user.user_id, user.user_name, user.user_type, user.pwd_type, user.user_attribute,
-			user.status_id, user.sys_id, user.datasource, user.createtime, 
-			user.updatetime,user.user_password,job.JOB_ID
+			user.status_id, user.sys_id, user.data_source, user.create_time, 
+			user.update_time,user.user_password,job.JOB_ID
 		from user_info user
 		left join ai_user_job job on user.user_id = job.user_ID
 		WHERE
@@ -235,13 +235,13 @@
 				user_attribute= #{userAttribute,jdbcType=VARCHAR},
 			</if>
 			<if test="dataSource!=null">
-				datasource= #{dataSource,jdbcType=VARCHAR},
+				data_source= #{dataSource,jdbcType=VARCHAR},
 			</if>
 			<if test="createTime!=null">
-				createtime= #{createTime,jdbcType=TIMESTAMP},
+				create_time= #{createTime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="updateTime!=null">
-				updatetime= #{updateTime,jdbcType=TIMESTAMP}
+				update_time= #{updateTime,jdbcType=TIMESTAMP}
 			</if>
 		</set>
 			where user_id=#{userId,jdbcType=VARCHAR}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.c.cinterface.permission.dao.AiMenuMapper">
+	<resultMap id="aiMenuMap" type="com.ai.c.cinterface.permission.entity.AiMenu">
+		<result column="func_id" property="funcId" />
+		<result column="func_name" property="name" />
+		<result column="menu_url" property="menuUrl" />
+		<result column="parent_id" property="parentId" />
+		<result column="menu_type" property="menuType" />
+		<result column="status" property="status"/>
+		<result column="remark" property="remark" />
+		<result column="level_id" property="levelId" />
+	</resultMap>
+	
+	<sql id="aiMenuColumns">
+		func_id,func_name,menu_url,parent_id,menu_type,remark,level_id
+	</sql>
+	
+	<!-- 查询功能菜单 -->
+	<select id="queryAiMenus" parameterType="com.ai.c.cinterface.permission.entity.AiMenu" resultMap="aiMenuMap">
+		select <include refid="aiMenuColumns"/> from ai_menu
+		where 1=1 
+		<if test="funcId != null and funcId != ''">and func_id=#{funcId}</if> 
+		<if test="name != null and name != ''">and func_name=#{name}</if> 
+		<if test="menuUrl != null and menuUrl != ''">and menu_url=#{menuUrl}</if> 
+		<if test="status != null and status != ''">and status=#{status}</if> 
+		<if test="menuType != null and menuType != ''">and menu_type=#{menuType}</if>
+		<if test="parentId != null and parentId != ''">and parent_id=#{parentId}</if>
+		order by menu_type;
+	</select>
+	
+	<!-- 添加功能菜单-->
+	<insert id="insertAiMenu" parameterType="com.ai.c.cinterface.permission.entity.AiMenu">
+		insert into ai_menu
+		(
+			func_id, func_name, menu_url, parent_id, menu_type, menu_order, remark
+		)
+		values
+		(
+			#{funcId}, #{name}, #{menuUrl}, #{parentId}, #{menuType}, #{menuOrder},#{remark}
+		)
+	</insert>
+	
+	<!-- 修改功能菜单 -->
+	<update id="updateAiMenu" parameterType="com.ai.c.cinterface.permission.entity.AiMenu">
+		update ai_menu
+		<trim prefix="set" suffixOverrides=",">
+			<if test="name != null">func_name=#{name},</if>
+			<if test="menuUrl != null">menu_url=#{menuUrl},</if>
+			<if test="parentId != null">parent_id=#{parentId},</if>
+			<if test="menuType != null">menu_type=#{menuType},</if>
+			<if test="status != null">status=#{status},</if>
+			<if test="menuOrder != null">menu_order=#{menuOrder},</if>
+			<if test="remark != null">remark=#{remark}</if>
+		</trim>
+		where
+			func_id=#{funcId}
+	</update>
+	
+	<!-- 删除功能菜单 -->
+	<delete id="deleteAiMenu" parameterType="string">
+		delete ai_menu from ai_menu where func_id=#{funcId}
+	</delete>
+</mapper>

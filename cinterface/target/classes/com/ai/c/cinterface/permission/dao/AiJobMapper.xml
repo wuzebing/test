@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.c.cinterface.permission.dao.AiJobMapper">
+	<resultMap id="aiJob" type="com.ai.c.cinterface.permission.entity.AiJob">
+		<result column="job_id" property="jobId" />
+		<result column="job_name" property="jobName" />
+		<result column="remark" property="remark" />
+		<result column="admin_id" property="adminId" />
+		<result column="admin_name" property="adminName" />
+		<result column="admin_time" property="adminTime" />
+		<result column="job_type" property="jobType" />
+	</resultMap>
+	
+	<sql id="aiJobColumns">
+		job_id,job_name,remark,admin_id,admin_name,admin_time,job_type
+	</sql>
+	
+	<select id="queryAiJobsListPage" parameterType="map" resultMap="aiJob">
+		select <include refid="aiJobColumns"/> 
+		from ai_job
+		where 1=1 
+		<if test="jobId != null and jobId != ''">and job_id=#{jobId}</if>
+		<if test="jobName != null and jobName != ''">and job_name like "%"#{jobName}"%"</if>
+		<if test="jobType != null and jobType != ''">and job_Type=#{jobType}</if> 
+		order by admin_time
+	</select>
+	
+	<!-- 查询某个角色记录 -->
+	<select id="queryAiJobByJobId" parameterType="String" resultMap="aiJob">
+		select <include refid="aiJobColumns"/> from ai_job where job_id=#{jobId}
+	</select>
+	
+	<!-- 添加新角色 -->
+	<insert id="insertAiJob" parameterType="com.ai.c.cinterface.permission.entity.AiJob">
+		insert into ai_job
+		(
+			<include refid="aiJobColumns" />
+		)
+		values
+		(
+		#{jobId}, #{jobName}, #{remark}, #{adminId}, #{adminName},#{adminTime},#{jobType}
+		)
+	</insert>
+	
+	<!-- 修改某一用户角色 -->
+	<update id="updateAiJob" parameterType="com.ai.c.cinterface.permission.entity.AiJob">
+		update ai_job
+		<trim prefix="set" suffixOverrides=",">
+			<if test="jobName != null">job_name=#{jobName}</if>
+			<if test="remark != null">remark=#{remark}</if>
+			<if test="adminTime != null">admin_time=#{adminTime}</if>
+		</trim>
+		where job_id=#{jobId}
+	</update>
+</mapper>

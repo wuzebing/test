@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.c.cinterface.permission.dao.AiJobRelationMapper">
+
+	<resultMap id="jobRelation" type="com.ai.c.cinterface.permission.entity.AiJobRelation">
+		<result property="jobId" column="JOB_ID"/>
+		<result property="jobName" column="JOB_NAME" />
+		<result property="childJobId" column="child_Job_ID" />
+		<result property="childJobName" column="child_job_NAME" />
+		<result property="jobType" column="job_type" />
+		<result property="remark" column="REMARK" />
+		<result property="adminId" column="ADMIN_ID" />
+		<result property="adminName" column="ADMIN_NAME" />
+		<result property="adminTime" column="ADMIN_TIME" />
+	</resultMap>
+	
+	<select id="getJobRelation" parameterType="map" resultMap="jobRelation">
+		select relation.child_Job_ID,job.ADMIN_ID,job.ADMIN_NAME
+		from ai_job_relation relation 
+		left join ai_job job on relation.child_Job_ID = job.JOB_ID
+		where relation.JOB_ID = #{jobId} 
+			  and relation.job_type = #{jobType}
+			
+	</select>
+</mapper>

@@ -16,6 +16,7 @@ import com.ai.c.base.entity.JsonResult;
 import com.ai.c.base.resultcode.ResultCode;
 import com.ai.c.cinterface.user.status.OtherConst;
 import com.ai.c.cinterface.user.service.UserInfoService;
+import com.ai.c.base.annotation.Auth;
 
 @Controller
 @RequestMapping("/user")
@@ -31,17 +32,12 @@ public class UserInfoController extends BaseSpringController{
 	 * @return
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@Auth(auth=true)
 	@ResponseBody
 	public JsonResult login(HttpServletRequest request,
 			HttpServletResponse response) {
 		JsonResult jsonResult = new JsonResult();
 		try {
-			int validAuthCode = validAuthenticator(request);
-			if (validAuthCode != ResultCode.SUCCESS.getCode()) {
-				jsonResult.setStatusCode(validAuthCode);
-				jsonResult.setReturnObj("Authenticator校验不通过");
-				return jsonResult;
-			}
 			String ip = request.getParameter("ip");
 			String timestamp = request.getParameter("timestamp");
 			String sysId = request.getParameter("sysId");

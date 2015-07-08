@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.c.cinterface.permission.dao.MenuInfoMapper">
+
+	<!-- 菜单信息缓存（暂时的缓存策略是60秒） -->
+	<cache flushInterval="60000" readOnly="true"/>
+	
+	<!-- 包含菜单信息（对应于主菜单和二级菜单） -->
+	<resultMap type="com.ai.c.cinterface.permission.entity.FolderMenuInfo" id="folderMenuInfo">
+		<result column="folder_id" property="id"/>
+		<result column="folder_name" property="name"/>
+		<result column="menu_url" property="url" />
+	</resultMap>
+	
+	<!-- 包含菜单功能信息（对应于该系统的三级菜单） -->
+	<resultMap type="com.ai.c.cinterface.permission.entity.FuncMenuInfo" id="functionMenuInfo">
+		<result column="func_id" property="id" />
+		<result column="func_name" property="name" />
+		<result column="page_url" property="url" />
+	</resultMap>
+	
+	<!-- 包括二级菜单和相对应的功能菜单信息 -->
+	<resultMap type="com.ai.c.cinterface.permission.entity.LowerFolderAndFunctionMenuInfo" id="lowerFolderAndFunctionMenuInfo">
+		<result column="folder_id" property="id"/>
+		<result column="folder_name" property="name"/>
+		<result column="menu_url" property="url" />
+		<collection property="childMenuInfos" column="folder_id" resultMap="functionMenuInfo"></collection>
+	</resultMap>
+	
+	
+	<!-- 查询主菜单信息 -->
+	<select id="queryHeaderMenuInfo" parameterType="map" resultMap="folderMenuInfo">
+		select 
+			menu.func_id	as folder_id,
+			menu.func_name	as folder_name,
+			menu.menu_url	as menu_url
+		from ai_menu menu
+			right join ai_job_func func on menu.func_id=func.func_id 
+		where menu.status='0'
+			and menu.parent_id=#{parentId} and func.job_id=#{role} 
+			order by func.menu_order;
+	</select>
+	
+	<!-- 查询二级菜单和相应功能菜单的信息 -->
+	<select id="queryLowerFolderAndFuncMenuInfo" parameterType="map" resultMap="lowerFolderAndFunctionMenuInfo">
+		select 
+			menu.func_id	as folder_id,
+			menu.func_name	as folder_name,
+			menu.menu_url	as menu_url,
+			menu2.func_id	as func_id,
+			menu2.func_name	as func_name,
+			menu2.menu_url	as page_url
+		from 
+			(select func.func_id, func.MENU_ORDER, menu.func_name, menu.menu_url, menu.parent_id from ai_job_func func, ai_menu menu where func.func_id=menu.func_id and func.job_id=#{role} and menu.status='0') menu
+			left join
+			(select func.func_id, func.MENU_ORDER, menu.func_name, menu.menu_url, menu.parent_id from ai_job_func func, ai_menu menu where func.func_id=menu.func_id and func.job_id=#{role} and menu.status='0') menu2
+			on menu.func_id=menu2.parent_id
+		where 
+			menu.parent_id=#{parentId}
+			order by menu2.menu_order;
+	</select>
+	
+	<!-- 查询某个角色所有的可访问的菜单url -->
+	<select id="queryMenusbyRole" parameterType="string" resultType="String">
+		select 
+			menu.menu_url 
+		from ai_job_func func
+			inner join ai_menu menu on func.func_id=menu.func_id
+		where func.job_id=#{jobId} and menu.menu_url is not null 
+	</select>
+</mapper>
