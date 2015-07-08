@@ -101,12 +101,10 @@ public class LoginPageControler {
 		String headUrl = ConfigUtils.getStringValue("api.serverURL");
 		String tailUrl = ConfigUtils.getStringValue("user.login");
 		String requestURI = headUrl + tailUrl;
-        String ip= IPUtil.getIP(request);
 		Map<String, String> bodyParam = new HashMap<String, String>();
 		bodyParam.put("passWord", CommonCryptogram.encrypt(passWord));
 		bodyParam.put("userName", userName);
 		bodyParam.put("loginSource", loginSource);
-		bodyParam.put("ip", ip);
 
 		// 调REST接口
 		String result = new RestPostClient().callRestRPC(requestURI, bodyParam,
