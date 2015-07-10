@@ -2,6 +2,7 @@
 /*.ipr
 /*.iws
 /.classpath
+/classes
 /.idea
 /.project
 /.settings
@@ -9,6 +10,8 @@
 /ibderby
 /nb*
 /release.properties
+/db.properties
+/server.properties
 /target
 /test.db.lck
 /test.db.log
