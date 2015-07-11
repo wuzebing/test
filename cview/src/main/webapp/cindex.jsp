@@ -8,8 +8,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
-<link href="resources/css/base/base.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/index/index.css" rel="stylesheet" type="text/css" />
+<link href="<%=path %>/resources/css/base/base.css" rel="stylesheet" type="text/css" />
+<link href="<%=path %>/resources/css/index/index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="top_context">
@@ -17,7 +17,7 @@
 			<div class="top_menu">
 				<ul class="top_ul">
 					<li>
-						<a>登录</a>
+						<a onclick="location.href='<%=path %>/homePage/home/login'">登录</a>
 						<b>|</b>
 						<a>注册</a>
 					</li>
