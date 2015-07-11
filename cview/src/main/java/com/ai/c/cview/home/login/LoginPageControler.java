@@ -119,5 +119,37 @@ public class LoginPageControler {
 		jsonResult = JsonUtil.fromJson(result, JsonResult.class);
 		return jsonResult;
 	}
+	
+	/**
+	 * 登录页面-校验验证码 <功能详细描述>
+	 * 
+	 * @param request
+	 *            HTTP请求对象
+	 * @param response
+	 *            HTTP响应对象
+	 * @throws Exception
+	 *             异常信息
+	 * @see [类、类#方法、类#成员]
+	 */
+	@RequestMapping(value = "/validateVerify", method = RequestMethod.POST)
+	@ResponseBody
+	public String validateVerify(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			@CookieValue(value = "verifyCode", required = true) String verifyCodeFromCookie)
+			throws Exception {
+		// 获取参数
+		String verifyCode = request.getParameter("verifyCode");
+		if (StringUtils.isEmpty(verifyCode)) {
+			return "false";
+		}
+		String verifyCodeMing = CommonCryptogram.decrypt(verifyCodeFromCookie);
+		if (!StringUtils.isEmpty(verifyCodeMing)
+				&& verifyCodeMing.equalsIgnoreCase(verifyCode)) {
+			return "true";
+		} else {
+			return "false";
+		}
+	}
 
 }
