@@ -48,7 +48,7 @@ body{
 	width: 232px;
 	height: 51px;
 	margin-top: 6px;
-	background: transparent url("../resources/images/index/logo.png") no-repeat scroll 0% 0%;
+	background: transparent url("../../images/index/logo.png") no-repeat scroll 0% 0%;
 	margin-left: 22px;
 	display: inline-block;
 }
@@ -64,14 +64,14 @@ body{
 }
 .header .header_content .menu li a{
 	width: 101px;
-	background: transparent url("../resources/images/index/menu.png") no-repeat scroll 0% 0%;
+	background: transparent url("../../images/index/menu.png") no-repeat scroll 0% 0%;
 	background-position: 0px top;
 	display:block;
 	height: 61px;
 }
 .header .header_content .menu li a:hover{
 	width: 101px;
-	background: transparent url("../resources/images/index/menu.png") no-repeat scroll 0% 0%;
+	background:url("../../images/index/menu.png");
 	background-position: -102px -61px;
 	display:block;
 	height: 61px;
@@ -142,7 +142,7 @@ body{
 	border: 1px solid #D8D8D8;
 	position: relative;
 	z-index: 90;
-	background: #FFF url("../resources/images/index/catebg.png") repeat-y scroll 3px top;
+	background: #FFF url("../../images/index/catebg.png") repeat-y scroll 3px top;
 }
 .category h2{
 	font-size: 14px;
@@ -171,7 +171,7 @@ body{
 	display: block;
 	font-size: 12px;
 	color: #888;
-	background: transparent url("../resources/images/index/gongju.png") no-repeat scroll 0% 0%;
+	background: transparent url("../../images/index/gongju.png") no-repeat scroll 0% 0%;
 	left: 13px;
 	position: absolute;
 	top: 7px;
@@ -187,7 +187,7 @@ body{
 	width: 790px;
 	height: 390px;
 	float: right;
-	background: transparent url("../resources/images/index/banner_01.jpg") no-repeat scroll 0% 0%;
+	background: transparent url("../../images/index/banner_01.jpg") no-repeat scroll 0% 0%;
 }
 
 .product{
@@ -321,7 +321,7 @@ body{
 }
 .hot_pro li .pro_pic{
 	cursor: default;
-	background:url(../resources/images/index/pic_001.jpg);
+	background:url(../../images/index/pic_001.jpg);
 	display: block;
 	width: 60px;
 	height: 60px;
