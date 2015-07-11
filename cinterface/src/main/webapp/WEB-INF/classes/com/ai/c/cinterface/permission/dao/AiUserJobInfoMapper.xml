@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.c.cinterface.permission.dao.AiUserJobInfoMapper">
+
+	<resultMap id="userRoleRelationInfo" type="com.ai.c.cinterface.permission.entity.AiUserJobInfo">
+		<result column="user_id" property="userId"/>
+		<result column="user_name" property="userName" />
+		<result column="job_id" property="jobId" />
+		<result column="job_type" property="jobType" />
+		<result column="job_type_name" property="jobTypeName" />
+		<result column="job_name" property="jobName" />
+		<result column="admin_id" property="adminId" />
+		<result column="admin_name" property="adminName" />
+		<result column="admin_time" property="adminTime" />
+	</resultMap>
+	
+	<!-- 管理员的相关信息映射 -->
+	<resultMap type="com.ai.c.cinterface.admin.entity.AdminInfo"
+		id="adminInfoMapper">
+		<result column="sequenceid" property="sequenceId" jdbcType="BIGINT" />
+		<result column="user_id" property="userId" jdbcType="CHAR" />
+		<result column="realname" property="realName" jdbcType="VARCHAR" />
+		<result column="idtype" property="idtype" jdbcType="INTEGER" />
+		<result column="ProvinceID" property="provinceId" jdbcType="CHAR" />
+		<result column="AreaID" property="areaId" jdbcType="VARCHAR" />
+		<result column="idnumber" property="idNumber" jdbcType="VARCHAR" />
+		<result column="phonenumber" property="phoneNumber" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="updatetime" property="updateTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<sql id="aiUserJobColumns">
+		user_id,job_id,admin_id,admin_name,admin_time
+	</sql>
+	<select id="queryJobInfoByUser" parameterType="String" resultMap="userRoleRelationInfo">
+		select <include refid="aiUserJobColumns"/> from ai_user_job where user_id=#{userId}
+	</select>
+	
+	<select id="queryJobInfoByJob" parameterType="String" resultMap="userRoleRelationInfo">
+		select <include refid="aiUserJobColumns"/> from ai_user_job where job_id=#{jobId}
+	</select>
+	
+	<select id="queryAdminInfoByJob" parameterType="String" resultMap="adminInfoMapper">
+		select job.user_id as user_id,
+		admin.phonenumber as phonenumber
+		from ai_user_job job
+		inner join admin_info admin on job.user_id=admin.user_id
+		where job.job_id=#{jobId}
+	</select>
+	
+	<select id="queryUserJobInfoListPage" parameterType="map" resultMap="userRoleRelationInfo">
+		select 
+			user.user_id 		as user_id,
+			user.user_name 		as user_name,
+			job.job_id			as job_id,
+			job.job_type 		as job_type,
+			job.job_name		as job_name,
+			userJob.admin_id	as admin_id,
+			userJob.admin_name	as admin_name,
+			userJob.admin_time as admin_time,
+			case job.job_type when 'ADMIN' then '管理员' when 'SUPPLIER' then '供货商' when 'PARTNER' then '合伙人' end as job_type_name
+		from user_info user 
+			inner join ai_user_job userJob on userJob.user_id = user.user_id  
+			inner join ai_job job on userJob.job_id  = job.job_id
+		where 1=1 
+		<if test="userName != null and userName != ''">and user.user_name like "%"#{userName}"%"</if>
+		order by user.createtime desc
+	</select>
+	
+	<!-- 给用户分配角色 -->
+	<insert id="saveAiUserJobInfo" parameterType="com.ai.c.cinterface.permission.entity.AiUserJobInfo">
+		insert into ai_user_job 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">user_id,</if>
+			<if test="jobId != null">job_id,</if>
+			<if test="adminId != null">admin_id,</if>
+			<if test="adminName != null">admin_name,</if>
+			<if test="adminTime != null">admin_time,</if>
+		</trim>
+		<trim prefix="values(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">#{userId},</if>
+			<if test="jobId != null">#{jobId},</if>
+			<if test="adminId != null">#{adminId},</if>
+			<if test="adminName != null">#{adminName},</if>
+			<if test="adminTime != null">#{adminTime},</if>
+		</trim>
+	</insert>
+	
+	<!-- 重新分配角色给用户 -->
+	<update id="updateAiUserJobInfo" parameterType="com.ai.c.cinterface.permission.entity.AiUserJobInfo">
+		update ai_user_job
+		<trim prefix="set" suffixOverrides=",">
+			<if test="userId != null">user_id=#{userId},</if>
+			<if test="jobId != null">job_id=#{jobId},</if>
+			<if test="adminId != null">admin_id=#{adminId}</if>
+			<if test="adminName != null">admin_name=#{adminName},</if>
+			<if test="adminTime != null">admin_time=#{adminTime},</if>
+		</trim>
+		where
+			user_id=#{userId}
+	</update>
+
+</mapper>

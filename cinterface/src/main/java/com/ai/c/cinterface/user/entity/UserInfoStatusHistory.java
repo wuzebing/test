@@ -1,8 +1,25 @@
+/*
+ * 文 件 名:  UserInfoStatusHistory.java
+ * 版    权:   Technologies Co., Ltd. Copyright YYYY-YYYY,  All rights reserved
+ * 描    述:  <描述>
+ * 修 改 人:   LIUQIANMING
+ * 修改时间:  2015-07-11 
+ * 跟踪单号:  <跟踪单号>
+ * 修改单号:  <修改单号>
+ * 修改内容:  <修改内容>
+ */
 package com.ai.c.cinterface.user.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
+/**
+ * 用户信息业务对象
+ * 
+ * @author  LIUQIANMING
+ * @version  [版本号, 2015-07-11]
+ * @see  [相关类/方法]
+ * @since  [用户/模块版本]
+ */
 public class UserInfoStatusHistory implements Serializable{
 
 	private static final long serialVersionUID = -8211332992672540983L;

@@ -28,7 +28,7 @@ import com.ai.c.cview.verifycode.util.VerifyCodeUtil;
  * Author: LIUQIANMING
  * Create Date:2015-06-30
  * Modified By:
- * Modified Date:
+ * Modified Date:a
  */
 @Controller
 @RequestMapping("/verifycode")

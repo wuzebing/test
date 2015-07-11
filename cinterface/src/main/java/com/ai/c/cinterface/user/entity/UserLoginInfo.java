@@ -1,14 +1,25 @@
+/*
+ * 文 件 名:  UserLoginInfo.java
+ * 版    权:   Technologies Co., Ltd. Copyright YYYY-YYYY,  All rights reserved
+ * 描    述:  <描述>
+ * 修 改 人:   LIUQIANMING
+ * 修改时间:  2015-07-11 
+ * 跟踪单号:  <跟踪单号>
+ * 修改单号:  <修改单号>
+ * 修改内容:  <修改内容>
+ */
 package com.ai.c.cinterface.user.entity;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 用户登录日志信息
+ * 用户登录信息业务对象
  * 
- * @author LIUQIANMING
- * @time 2014-11-21 下午3:03:40
- * 
+ * @author  LIUQIANMING
+ * @version  [版本号, 2015-07-11]
+ * @see  [相关类/方法]
+ * @since  [用户/模块版本]
  */
 
 public final class UserLoginInfo implements Serializable{

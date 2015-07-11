@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.c.cinterface.commodity.dao.CommodityInfoMapper">
+	<resultMap type="com.ai.c.cinterface.commodity.entity.CommodityInfo"
+		id="commodity">
+		<id column="commodity_id" property="commodityID" />
+		<id column="c_sys_id" property="systemID" />
+		<result column="user_id" property="supplierID" />
+		<result column="user_name" property="supplierName" />
+		<result column="commodity_name" property="commodityName" />
+		<result column="commodity_type" property="commodityType" />
+		<result column="commodity_details" property="commodityDetails" />
+		<result column="commodity_resume" property="commodityResume" />
+		<result column="commodity_desc" property="commodityDesc" />
+		<result column="commodity_price" property="commodityPrice" />
+		<result column="max_commodity_price" property="maxCommodityPrice" />
+		<result column="contract_price" property="contractPrice" />
+		<result column="flag" property="flag" />
+		<result column="condition_price" property="conditionPrice" />
+		<result column="is_show" property="isShow" />
+		<result column="treaty_name" property="treatyName" />
+		<result column="offer_name" property="offerName" />
+		<result column="number_name" property="numberName" />
+		<result column="channel_number" property="channelNumber" />
+		<result column="shop" property="shop" />
+		<result column="package_price" property="packagePrice" />
+		<result column="commodity_state" property="commodityState" />
+		<result column="operatorid" property="operatorID" />
+		<result column="createtime" property="createTime" />
+		<result column="updatetime" property="updateTime" />
+		<result column="commodity_url" property="commodityUrl" />
+		<result column="shop_code" property="shopCode" />
+		<result column="provinceid" property="provinceID" />
+		<result column="offerid" property="offerID" jdbcType="VARCHAR"/>
+		<!-- 扩展属性 -->
+		<result column="type_name" property="commodityTypeName" />
+		<result column="receivedCount" property="receivedCount" />
+		<result column="saleCount" property="saleCount" />
+		<result column="totalRebatePrice" property="totalRebatePrice" />
+		<result column="system_name" property="systemName" />
+		<result column="provincename" property="provinceName" />
+		<result column="total_condition_price" property="totalConditionsPrice" />
+		<result column="k_condition_price" property="kConditionPrice" />
+		<result column="supplier_condition_price" property="supplierConditionPrice" />
+		<result column="Commodity_InterID" property="commodityInterID"/>
+		<result column="promotion_url" property="promotionUrl"/>
+		<result column="channel_name" property="channelName" />
+		<result column="brand" property="brand" />
+		<result column="brand_name" property="brandName" />
+		<result column="is_received" property="isReceived"/>
+		<result column="comPic" property="comPic" />
+		<collection property="commodityPictures" ofType="com.ai.c.cinterface.commodity.entity.CommodityPicture">
+			<id column="Commodity_InterID" property="commodityInterID"/>
+			<result column="comPic" property="pcPicURL" />
+			<result column="comMobilePic" property="mobilePicURL"/>
+			<result column="pic_type" property="picType" />
+		</collection>
+	</resultMap>
+
+	<!-- 获取商品展示的商品信息-->
+	<select id="queryComInfoListPage" resultMap="commodity"
+		parameterType="map">
+		SELECT
+				comInfo.Commodity_InterID,
+				comSale.commodity_id,
+				comInfo.Commodity_name as commodity_name,
+				ROUND(IFNULL(comSale.Commodity_price,0)/100,2) as commodity_price,
+				ROUND(IFNULL(comSale.Total_ConditionPrice,0)/100,2) as condition_price,
+				ROUND(IFNULL(comSale.Supplier_ConditionPrice,0)/100,2) as supplier_condition_price,
+				ROUND(IFNULL(comSale.K_ConditionPrice,0)/100,2) as k_condition_price,
+				comSale.sale_type as c_sys_id,
+				IFNULL(parType.type_name,'') AS type_name,
+				IFNULL(parType2.type_name,'') AS channel_name,
+				ps.sys_name as system_name,
+				IFNULL(comCount.Commodity_Received_Count,0) as receivedCount,
+				IFNULL(comCount.Commodity_Sale_Count,0) as saleCount,
+				scope.ProvinceScope as provinceId,
+				pro.provincename,
+				pic.pc_picurl as comPic,
+				pic.mobile_picurl as comMobilePic,
+				pic.pic_type as pic_type,
+				case when comrece.sequenceid is null then false else true end as is_received
+		FROM commodity_sale_type comSale
+		INNER JOIN commodity_info comInfo ON comSale.Commodity_InterID = comInfo.Commodity_InterID
+		LEFT JOIN commodity_salescope scope ON comSale.Commodity_InterID = scope.Commodity_InterID and comSale.commodity_id=scope.commodity_id
+		LEFT JOIN commodity_info_count comCount on comSale.commodity_id = comCount.commodity_id 
+		   and comSale.sale_type=comCount.sys_id
+		LEFT JOIN par_type parType ON parType.type_id = comInfo.commodity_type
+		LEFT JOIN par_type parType2 ON parType2.type_id = comInfo.channel_code 
+		LEFT JOIN par_interface_system ps ON ps.sys_id = comSale.sale_type
+		LEFT JOIN par_province pro ON pro.provinceid = scope.ProvinceScope
+		LEFT JOIN commodity_picture pic ON  comSale.Commodity_InterID = pic.Commodity_InterID  and pic.pic_type='99'
+		LEFT JOIN commodity_receive comrece  on comrece.commodity_id=comSale.commodity_id and comSale.sale_type=comrece.sys_id
+		   and comrece.user_id=#{userID}
+		<where>
+			1=1
+			<if test="commodityName != null">and comInfo.Commodity_name like "%"#{commodityName}"%"</if>
+			<if test="commodityState != null">and comSale.commodity_state= #{commodityState}</if>
+			<if test="isShow != null">and comInfo.Is_show= #{isShow}</if>
+			<if test="conditionPrice == 00">
+				and comSale.Total_ConditionPrice between #{beginPrice} and #{endPrice}
+			</if>
+			<if test="conditionPrice == 01">
+				and comSale.Total_ConditionPrice <![CDATA[>=]]> #{beginPrice}
+			</if>
+			<if test="systemID != null">and comSale.sale_type = #{systemID}</if>
+			<if test="commodityType != null">and comInfo.Commodity_Type= #{commodityType}</if>
+			<if test="provinceID != null">
+			and scope.ProvinceScope in
+				<foreach item="item" collection="provinceID" index="index"
+      				open="(" separator="," close=")">
+        			#{item, jdbcType=VARCHAR}
+  				</foreach>
+			</if>
+			<if test="Internet != null">and (scope.ProvinceScope='35' or scope.ProvinceScope='19' or comSale.Supplier_ConditionPrice=0)</if>
+			<if test="supplierID != null">and comSale.user_id= #{supplierID}</if>
+			<if test="supplierProvinceID != null">and scope.ProvinceScope= #{supplierProvinceID}</if>
+			<if test="partnerProvinceID != null">and (scope.ProvinceScope= #{partnerProvinceID} OR scope.ProvinceScope= '35')</if>
+			<if test="channelCode != null">AND comInfo.channel_code = #{channelCode}</if>
+			<if test="isDisplay != null">AND comSale.is_display=#{isDisplay}</if>
+			<if test="brand != null">AND comInfo.brand=#{brand}</if>
+			<if test="startCommodityPrice != null"> and comSale.commodity_price<![CDATA[>=]]>#{startCommodityPrice}</if>
+			<if test="endCommodityPrice != null"> and comSale.commodity_price<![CDATA[<]]>#{endCommodityPrice}</if>
+		</where>
+		GROUP BY comSale.commodity_id
+		<!-- 排序字段 -->
+		<if test="orderColumn == 'updateTime'">ORDER BY comSale.updatetime</if>
+		<if test="orderColumn == 'commodityPrice'">ORDER BY comSale.Commodity_Price</if>
+		<if test="orderColumn == 'conditionPrice'"> ORDER BY comSale.Total_ConditionPrice </if>
+		<if test="orderColumn == 'receivedCount'">ORDER BY receivedCount</if>
+		<if test="orderColumn == 'saleCount'">ORDER BY saleCount</if>
+		<if test="orderType == 'DESC'"> DESC</if>
+		<if test="orderType == 'ASC'">ASC</if>
+	</select>
+
+	<!-- 根据商品ID获取商品基本信息 -->
+	<select id="getComInfoByID" resultMap="commodity"
+		parameterType="map">
+		SELECT
+				comSale.Commodity_InterID,
+				comSale.commodity_id,
+				comInfo.Commodity_name as commodity_name,
+				ROUND(IFNULL(comSale.Commodity_price,0)/100,2) as commodity_price,
+				IFNULL(ROUND(COMSale.max_commodity_price/100, 2), '') as max_commodity_price,
+				ROUND(IFNULL(comSale.Total_ConditionPrice,0)/100,2) as condition_price,
+				ROUND(IFNULL(comSale.Supplier_ConditionPrice,0)/100,2) as supplier_condition_price,
+				ROUND(IFNULL(comSale.K_ConditionPrice,0)/100,2) as k_condition_price,
+				comSale.sale_type as c_sys_id,
+				ps.sys_name as system_name,
+				IFNULL(comCount.Commodity_Received_Count,0) as receivedCount,
+				IFNULL(comCount.Commodity_Sale_Count,0) as saleCount,
+				comInfo.commodity_type,
+				parType.type_name,
+				IFNULL(parType2.type_name,'') AS channel_name,
+				comSale.sale_url as commodity_url,
+				comSale.promotion_url,
+				comInfo.brand as brand,
+				comInfo.commodity_details,
+				IFNULL(parType3.type_name,'') as brand_name,
+				case when comrece.sequenceid is null then false else true end as is_received
+		FROM commodity_sale_type comSale
+		LEFT JOIN commodity_info comInfo ON comSale.Commodity_InterID = comInfo.Commodity_InterID
+		LEFT JOIN commodity_info_count comCount on comSale.commodity_id = comCount.commodity_id 
+		 and comSale.sale_type=comCount.sys_id
+		LEFT JOIN par_type parType ON parType.type_id = comInfo.commodity_type
+		LEFT JOIN par_type parType2 ON parType2.type_id = comInfo.channel_code
+		LEFT JOIN par_type parType3 on parType3.type_id=comInfo.brand
+		LEFT JOIN par_interface_system ps ON ps.sys_id = comSale.sale_type
+		LEFT JOIN commodity_receive comrece  on comrece.commodity_id=comSale.commodity_id and comSale.sale_type=comrece.sys_id
+		   and comrece.user_id=#{userID}
+		WHERE comSale.commodity_interid = #{commodityInterID} AND comSale.sale_type= #{systemID} 
+		<if test="systemID != null">AND comSale.sale_type= #{systemID}</if>
+	</select>
+
+	<select id="getComByComIdAndSysId" parameterType="map" resultMap="commodity">
+		select commodity_id,promotion_url as commodity_url,shop_code,commodity_price
+		from commodity_sale_type
+		where commodity_id=#{commodityId} and sale_type=#{sysId} and commodity_state in ('78','80','81','82','84')
+	</select>
+	
+	<select id="getComProvinceByComId" parameterType="string" resultType="string">
+		select scope.provincescope
+		from commodity_sale_type sale 
+		left join commodity_salescope scope on sale.commodity_interid = scope.commodity_interid and sale.commodity_id=scope.commodity_id
+		where sale.commodity_id = #{commodityId}  
+	</select>
+	<select id="getSupplierConditionByComId" parameterType="string" resultType="string">
+		select IFNULL(Supplier_conditionPrice,0)
+		from commodity_sale_type 
+		where commodity_id = #{commodityId}
+	</select>
+</mapper>

@@ -7,8 +7,8 @@
 		id="userLoginInfoMapper">
 		<result column="user_id" property="userId" jdbcType="VARCHAR" />
 		<result column="user_name" property="userName" jdbcType="VARCHAR" />
-		<result column="create_time" property="createtime" jdbcType="TIMESTAMP" />
-		<result column="ip_address" property="ipaddress" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="ip_address" property="ipAddress" jdbcType="VARCHAR" />
 		<result column="from_sys_id" property="fromSysId" jdbcType="VARCHAR" />
 		<result column="auth_sys_id" property="authSysId" jdbcType="VARCHAR" />
 		<result column="to_sys_id" property="toSysId" jdbcType="VARCHAR" />
@@ -17,15 +17,15 @@
 		<result column="user_type" property="userType" jdbcType="VARCHAR" />
 		<result column="user_attribute" property="userAttribute"
 			jdbcType="VARCHAR" />
-		<result column="data_source" property="datasource" jdbcType="VARCHAR" />
-		<result column="auth_style" property="authstyle" jdbcType="VARCHAR" />
+		<result column="data_source" property="dataSource" jdbcType="VARCHAR" />
+		<result column="auth_style" property="authStyle" jdbcType="VARCHAR" />
 		<result column="login_source" property="loginSource" jdbcType="VARCHAR"/>
 		<result column="result_code" property="resultCode" jdbcType="INTEGER" />
-		<result column="host_name" property="hostname" jdbcType="VARCHAR" />
+		<result column="host_name" property="hostName" jdbcType="VARCHAR" />
 	</resultMap>
 
 	<insert id="loginSuccess" parameterType="com.ai.c.cinterface.user.entity.UserLoginInfo">
-		insert into user_info_logon
+		insert into user_info_login_sucess
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="userId != null">
 				user_id,
@@ -33,10 +33,10 @@
 			<if test="userName != null">
 				user_name,
 			</if>
-			<if test="createtime != null">
+			<if test="createTime != null">
 				create_time,
 			</if>
-			<if test="ipaddress != null">
+			<if test="ipAddress != null">
 				ip_address,
 			</if>
 			<if test="fromSysId != null">
@@ -57,16 +57,16 @@
 			<if test="userAttribute != null">
 				user_attribute,
 			</if>
-			<if test="datasource != null">
+			<if test="dataSource != null">
 				data_source,
 			</if>
-			<if test="authstyle != null">
+			<if test="authStyle != null">
 				auth_style,
 			</if>
 			<if test="resultCode != null">
 				result_code,
 			</if>
-			<if test="hostname != null">
+			<if test="hostName != null">
 				host_name,
 			</if>
 			<if test="loginSource != null">
@@ -80,11 +80,11 @@
 			<if test="userName != null">
 				#{userName,jdbcType=VARCHAR},
 			</if>
-			<if test="createtime != null">
-				#{createtime,jdbcType=TIMESTAMP},
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="ipaddress != null">
-				#{ipaddress,jdbcType=VARCHAR},
+			<if test="ipAddress != null">
+				#{ipAddress,jdbcType=VARCHAR},
 			</if>
 			<if test="fromSysId != null">
 				#{fromSysId,jdbcType=VARCHAR},
@@ -104,17 +104,17 @@
 			<if test="userAttribute != null">
 				#{userAttribute,jdbcType=VARCHAR},
 			</if>
-			<if test="datasource != null">
-				#{datasource,jdbcType=VARCHAR},
+			<if test="dataSource != null">
+				#{dataSource,jdbcType=VARCHAR},
 			</if>
-			<if test="authstyle != null">
-				#{authstyle,jdbcType=VARCHAR},
+			<if test="authStyle != null">
+				#{authStyle,jdbcType=VARCHAR},
 			</if>
 			<if test="resultCode != null">
 				#{resultCode,jdbcType=INTEGER},
 			</if>
-			<if test="hostname != null">
-				#{hostname,jdbcType=VARCHAR},
+			<if test="hostName != null">
+				#{hostName,jdbcType=VARCHAR},
 			</if>
 			<if test="loginSource != null">
 				#{loginSource,jdbcType=VARCHAR},
@@ -131,10 +131,10 @@
 			<if test="userName != null">
 				user_name,
 			</if>
-			<if test="createtime != null">
+			<if test="createTime != null">
 				create_time,
 			</if>
-			<if test="ipaddress != null">
+			<if test="ipAddress != null">
 				ip_address,
 			</if>
 			<if test="fromSysId != null">
@@ -155,16 +155,16 @@
 			<if test="userAttribute != null">
 				user_attribute,
 			</if>
-			<if test="datasource != null">
+			<if test="dataSource != null">
 				data_source,
 			</if>
-			<if test="authstyle != null">
+			<if test="authStyle != null">
 				auth_style,
 			</if>
 			<if test="resultCode != null">
 				result_code,
 			</if>
-			<if test="hostname != null">
+			<if test="hostName != null">
 				host_name,
 			</if>
 		</trim>
@@ -175,11 +175,11 @@
 			<if test="userName != null">
 				#{userName,jdbcType=VARCHAR},
 			</if>
-			<if test="createtime != null">
-				#{createtime,jdbcType=TIMESTAMP},
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="ipaddress != null">
-				#{ipaddress,jdbcType=VARCHAR},
+			<if test="ipAddress != null">
+				#{ipAddress,jdbcType=VARCHAR},
 			</if>
 			<if test="fromSysId != null">
 				#{fromSysId,jdbcType=VARCHAR},
@@ -199,17 +199,17 @@
 			<if test="userAttribute != null">
 				#{userAttribute,jdbcType=VARCHAR},
 			</if>
-			<if test="datasource != null">
-				#{datasource,jdbcType=VARCHAR},
+			<if test="dataSource != null">
+				#{dataSource,jdbcType=VARCHAR},
 			</if>
-			<if test="authstyle != null">
-				#{authstyle,jdbcType=VARCHAR},
+			<if test="authStyle != null">
+				#{authStyle,jdbcType=VARCHAR},
 			</if>
 			<if test="resultCode != null">
 				#{resultCode,jdbcType=INTEGER},
 			</if>
-			<if test="hostname != null">
-				#{hostname,jdbcType=VARCHAR},
+			<if test="hostName != null">
+				#{hostName,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
