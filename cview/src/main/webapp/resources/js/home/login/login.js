@@ -1,5 +1,7 @@
 var login = {
 	
+	verifyFlag : false,
+	
 	init:function(){
 		var _this = this;
 		
@@ -37,6 +39,7 @@ var login = {
 			traditional : true,
 			success : function(data, textStatus) {
 				if (data == true || data == "true") {
+					verifyFlag = true;
 					$("#error_Message").css("display", "none"); 
 				} else {
 					$("#error_Message").css("display", "block");
@@ -51,6 +54,31 @@ var login = {
 	
 	//登录
 	loginIn:function() {
+		var username = $("#username").val();
+		var password = $("#password").val();
+		var verifyText = $("#verifyText").val();
+		
+		if(username == ""){
+			$("#error_Message").css("display", "block");
+			$("#error_content").html("用户名不能为空"); 
+			return;
+		}
+		if(password == ""){
+			$("#error_Message").css("display", "block");
+			$("#error_content").html("密码不能为空"); 
+			return;
+		}
+		if(verifyText == ""){
+			$("#error_Message").css("display", "block");
+			$("#error_content").html("验证码不能为空"); 
+			return;
+		}
+		if(verifyFlag == false){
+			$("#error_Message").css("display", "block");
+			$("#error_content").html("验证码不正确"); 
+			return;
+		}
+		
 		$.ajax({
 			url : cview.path + "/loginPage/user/login",
 			type : "post",
@@ -58,9 +86,9 @@ var login = {
 			async : false,
 			dataType : "json",
 			data : {
-				username : $("#username").val(),
-				password : $("#password").val(),
-				verifyCode : $("#verifyText").val()
+				username : username,
+				password : password,
+				verifyCode : verifyText
 			},
 			traditional : true,// 使用传统方式序列化
 			success : function(data, textStatus) {
