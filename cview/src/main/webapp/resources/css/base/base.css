@@ -116,7 +116,7 @@ body{
 	position: absolute;
 	right: 0px;
 	top: 10px;
-	background: url('../images/icon/loginfont.png') no-repeat scroll 0% 0% transparent;
+	background: url('../resources/images/index/icon/loginfont.png') no-repeat scroll 0% 0% transparent;
 }
 .copyright{
 	margin:10px 0;

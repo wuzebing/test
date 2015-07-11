@@ -8,8 +8,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
-<link href="css/base.css" rel="stylesheet" type="text/css" />
-<link href="css/index/index.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/base/base.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/index/index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="top_context">
