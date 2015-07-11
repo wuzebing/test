@@ -19,20 +19,20 @@
 <%-- 网站左侧图标需要ico图片 --%>
 <link rel="shortcut icon" href="<%=path %>/images/ico/favicon.ico" type="image/x-icon" />
 
-<link rel="stylesheet" type="text/css" href="<%=path%>/css/base/base.css" />
-<link rel="stylesheet" type="text/css" href="<%=path%>/css/style.css" />
-<link rel="stylesheet" type="text/css" href="<%=path%>/css/save.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/base/base.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/base/foot.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/base/head.css" />
+
 <link rel="stylesheet" type="text/css" href="<%=path%>/resources/js/common/plugin/myJquery.page.css" />
 <link rel="stylesheet" type="text/css" href="<%=path%>/resources/js/common/plugin/myJquery.select.css" />
 <link rel="stylesheet" type="text/css" href="<%=path%>/resources/js/common/plugin/myJquery.boxy.css" />
-<script type="text/javascript" src="<%=path%>/resources/js/common/frameworks/jquery/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="<%=path%>/resources/js/common/frameworks/jquery/jquery.cookie.js"></script>
-<script type="text/javascript" src="<%=path%>/resources/js/common/frameworks/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="<%=path%>/resources/js/common/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="<%=path%>/resources/js/common/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="<%=path%>/resources/js/common/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="<%=path%>/resources/js/common/plugin/myJquery.Placeholder.js"></script>
 <script type="text/javascript" src="<%=path%>/resources/js/common/plugin/myJquery.page.js"></script>
 <script type="text/javascript" src="<%=path%>/resources/js/common/plugin/myJquery.select.js"></script>
 <script type="text/javascript" src="<%=path%>/resources/js/common/plugin/myJquery.boxy.js"></script>
-<script type="text/javascript" src="<%=path%>/resources/js/common/initAreaSelect.js"></script>
 <script type="text/javascript">
 	var cview = {
 		path: "<%=path%>"
