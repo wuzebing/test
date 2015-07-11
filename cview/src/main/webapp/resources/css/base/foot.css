@@ -6,7 +6,7 @@ a{
 	color: #636363;
 }
 .foot i{
-	background: url(../resources/images/index/icon/foot.png) no-repeat;
+	background: url(../../resources/images/index/icon/foot.png) no-repeat;
 	vertical-align: top;
 	display: inline-block;
 	*display: inline;

@@ -26,7 +26,7 @@ a {
 .header .back {
 	width: 12px;
 	height: 17px;
-	background: url(../resources/images/index/icon/base-icon.png) no-repeat 0 0;
+	background: url(../../../images/index/icon/base-icon.png) no-repeat 0 0;
 	float: left;
 	display: inline-block;
 	margin-top: 14px;
@@ -39,7 +39,7 @@ a {
 .header .search {
 	width: 20px;
 	height: 20px;
-	background: url(../resources/images/index/icon/base-icon.png) no-repeat -61px 0;
+	background: url(../../../images/index/icon/base-icon.png) no-repeat -61px 0;
 	float: right;
 	display: inline-block;
 	margin-top: 12px;
@@ -98,7 +98,7 @@ section {
 .sign .signup {
 	width: 66px;
 	height: 34px;
-	background: url(../resources/images/index/icon/login.png) no-repeat -19px -65px;
+	background: url(../../../images/index/icon/login.png) no-repeat -19px -65px;
 	line-height: 34px;
 	text-align: center;
 	color: #7c7c7c;
@@ -123,7 +123,7 @@ section {
 .login .user-info {
 	width: 282px;
 	height: 42px;
-	background: url(../resources/images/index/icon/login.png) no-repeat;
+	background: url(../../../images/index/icon/login.png) no-repeat;
 }
 
 .user-info.name {
@@ -145,12 +145,39 @@ section {
 	background-color: transparent;
 	line-height: 42px;
 }
-
+.login .user-info .verifyCode{
+	width: 111px;
+	height: 36px;
+	font-size: 12px;
+	color: #AFAFAF;
+	background-color: transparent;
+	line-height: 42px;
+	padding-left: 1px;
+	border: 1px solid #D9D9D9;
+}
+.login .verify {
+	position:relative;
+}
+.login .verify .verifyImg{
+	width: 100px;
+	height: 38px;
+	background-color: #FFF;
+	position: absolute;
+	right: 34px;
+	cursor: pointer;
+}
+.login .verify .reflush{
+	background-color: #FFF;
+	position: absolute;
+	right: 3px;
+	top: 7px;
+	cursor: pointer;
+}
 .login .enter input {
 	width: 280px;
 	height: 40px;
 	margin: 0 auto 24px;
-	background: url(../resources/images/index/icon/login.png) no-repeat -20px -221px;
+	background: url(../../../images/index/icon/login.png) no-repeat -20px -221px;
 }
 
 .login li .auto {
@@ -166,7 +193,7 @@ section {
 .auto .check {
 	width: 18px;
 	height: 18px;
-	background: url(../resources/images/index/icon/login.png) no-repeat -28px -293px;
+	background: url(../../../images/index/icon/login.png) no-repeat -28px -293px;
 	margin: 8px 5px auto 9px;
 }
 
@@ -174,7 +201,7 @@ section {
 	width: 82px;
 	height: 34px;
 	color: #7c7c7c;
-	background: url(../resources/images/index/icon/login.png) no-repeat -219px -285px;
+	background: url(../../../images/index/icon/login.png) no-repeat -219px -285px;
 	line-height: 34px;
 	text-align: center;
 	float: right;
@@ -187,7 +214,7 @@ section {
 	width: 242px;
 	height: 46px;
 	margin: 40px auto 0;
-	background: url(../resources/images/index/icon/login.png) no-repeat -39px -362px;
+	background: url(../../../images/index/icon/login.png) no-repeat -39px -362px;
 }
 
 .login .sinn a {
@@ -218,6 +245,25 @@ section {
     visibility: hidden;
     height: 0px;
     font-size: 0px;
+}
+.clearfix .error_Message{
+	color: #E54E3D;
+	display: none;
+	border: 1px solid rgb(255, 142, 142);
+	width: 99%;
+	position:relative;
+}
+.clearfix .error_img{
+	background: url(../../../images/index/icon/error.png) no-repeat;
+	width: 20px;
+	height: 20px;
+	display: block;
+	position: absolute;
+	top: 2px;
+	left: 13px;
+}  
+.clearfix .error_content{
+	padding-left: 37px;
 }
 .login_contain{
 	width:326px;
