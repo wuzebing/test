@@ -11,7 +11,7 @@ import com.ai.c.base.encrypt.Cryptogram;
  * 
  */
 public final class CommonCryptogram {
-	private static final String key = "FB1C9B45759BF82BAD5320E8AR5757C4F84A85232CE50825A2";
+	private static final String key = "FB1C9B45759BF8MAD5320E8A5757C4F84A85232CE50825A2";
 
 	/**
 	 * 加密啊

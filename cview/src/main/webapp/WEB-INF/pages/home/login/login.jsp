@@ -39,7 +39,7 @@ $(function(){
 									<input class='tipInput' placeholder='用户名/手机号' type="text" name="username" id='username'>
 								</li>
 								<li class="user-info pwd">
-									<input class='password' type="text" placeholder="密码">
+									<input class='password' type="password" placeholder="密码">
 								</li>
 								<li class="user-info verify">
 									<input class='verifyCode' id="verifyText" maxlength="4"  type="text" placeholder="验证码">
