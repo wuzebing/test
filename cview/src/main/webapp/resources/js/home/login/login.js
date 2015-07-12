@@ -80,14 +80,14 @@ var login = {
 		}
 		
 		$.ajax({
-			url : cview.path + "/loginPage/user/login",
+			url : cview.path + "/homePage/user/login",
 			type : "post",
 			cache : false,
 			async : false,
 			dataType : "json",
 			data : {
-				username : username,
-				password : password,
+				userName : username,
+				passWord : password,
 				verifyCode : verifyText
 			},
 			traditional : true,// 使用传统方式序列化
