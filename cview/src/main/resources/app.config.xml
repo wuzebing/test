@@ -6,4 +6,5 @@
 	<properties fileName="syslog.properties"/>
 	<properties fileName="admin.properties"/>
 	<properties fileName="user.properties"/>
+	
 </configuration>
