@@ -1,0 +1,63 @@
+.form .title {
+	background-color: #F0F0F0;
+	text-align: left;
+	font-weight: bold;
+	font-size: 16px;
+	height: 30px;
+}
+
+.tableCell {
+	text-align: center;
+	font-size: 16px;
+}
+
+.search_inp {
+	margin-left: 40px;
+}
+
+#required1,#required2 {
+	padding: 0 0 0 10px;
+}
+
+.searchcon {
+	height: 30px;
+}
+
+.form {
+	top: 0px;
+}
+
+.save {
+	margin-top: 20px;
+}
+
+#editButton,#deleteButton {
+	margin-left: 20px;
+	margin-top: 80px;
+}
+
+.treeTD {
+	width: 300px;
+	text-align: center;
+	padding-top: 20px;
+	padding-left: 40px
+}
+.treeNodeInfoTD{
+	text-align: center;
+	padding-top: 0px;
+}
+
+#panel {
+	top: 30px;
+	left: 0;
+	text-align: left;
+	display: inline;
+}
+
+.treeTable {
+	width: 95%;
+}
+.treeNodeInfoTr{
+	display: block;
+	margin: 20px;
+}

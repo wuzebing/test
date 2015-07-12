@@ -1,0 +1,16 @@
+.tableCell{
+	text-align: center;
+	font-size: 16px;
+}
+
+.search_inp{
+	margin-left: 40px;
+}
+
+#required1,#required2{
+	padding: 0 0 0 10px;
+}
+
+.searchcon{
+	height: 30px;
+}

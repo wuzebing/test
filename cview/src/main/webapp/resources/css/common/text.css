@@ -1,0 +1,15 @@
+/* 统一文本框（待界面改版时使用，勿动） */
+.text {
+	height: 30px;
+	width: 100px;
+	line-height: 30px;
+	padding-left: 2px;
+	font-size: 14px;
+	background-color: white;
+	border: 1px solid #dddddd;
+    border-radius: 1px;
+}
+.text:hover {
+	border-color: #46A3FF;
+}
+

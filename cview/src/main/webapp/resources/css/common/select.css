@@ -1,0 +1,14 @@
+/* 统一下拉框（待界面改版时使用，勿动） */
+.select {
+	height: 26px;
+	width: 100px;
+	line-height: 26px;
+	font-size: 14px;
+	cursor: pointer;
+	border: 1px solid #dddddd;
+	background-color: white;
+    border-radius: 1px;
+}
+.select:hover {
+	border-color: #46A3FF;
+}

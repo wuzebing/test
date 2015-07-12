@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* 表单基本样式 */
+.form {
+	border: 0px solid #dddddd;
+	padding: 0px;
+	border-spacing: 0px;	
+	font-family:"微软雅黑";
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	width: 600px;
+}
+.form td {
+	border: 0px solid #dddddd;
+	height: 50px;
+}
+.form .formField {
+	text-align: right;
+	width: 150px;
+}
+.form .formValue {
+	text-align: left;
+	font-size: 12px;
+	vertical-align: middle;
+	width: 250px;
+}
+/* 修改一种样式如果不行可以解开注释 */
+.form .formValue .formInput {
+	height: 30px;
+	width: 95%;
+    border-radius: 10px;-moz-border-radius: 10px;-webkit-border-radius: 10px;
+    background-color: white;
+    background: url(../../images/icon.png) -168px 0 no-repeat;
+    line-height:30px;
+    padding: 0px 5px;
+    border: 0px;
+}
+/* .form .formValue .formInput { */
+/* 	height: 30px; */
+/* 	width: 95%; */
+/*     background-color: white; */
+/*     border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px; */
+/*     line-height:30px; */
+/*     padding: 0px 5px; */
+/*     border: 1px solid #ccc; */
+/* } */
+.form .formMark {
+	width: 10px;
+	color: red;
+}
+.form .formMsg {
+	text-align: left;
+}
+.form img {
+	background-image: url("../../images/nopic.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
