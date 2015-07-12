@@ -17,7 +17,7 @@
 <meta http-equiv="Expires" content="0" />
 <meta name="viewport" content="no-cache, width=device-width, maximum-scale=2.0">
 <%-- 网站左侧图标需要ico图片 --%>
-<link rel="shortcut icon" href="<%=path %>/images/ico/favicon.ico" type="image/x-icon" />
+<%-- <link rel="shortcut icon" href="<%=path %>/images/ico/favicon.ico" type="image/x-icon" /> --%>
 
 <link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/base/base.css" />
 <link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/base/foot.css" />
@@ -33,6 +33,7 @@
 <script type="text/javascript" src="<%=path%>/resources/js/common/plugin/myJquery.page.js"></script>
 <script type="text/javascript" src="<%=path%>/resources/js/common/plugin/myJquery.select.js"></script>
 <script type="text/javascript" src="<%=path%>/resources/js/common/plugin/myJquery.boxy.js"></script>
+<script type="text/javascript" src="<%=path%>/resources/js/common/menuController.js"></script>
 <script type="text/javascript">
 	var cview = {
 		path: "<%=path%>"
