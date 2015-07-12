@@ -64,17 +64,15 @@ body{
 }
 .header .header_content .menu li a{
 	width: 101px;
-	background: transparent url("../../images/index/menu.png") no-repeat scroll 0% 0%;
-	background-position: 0px top;
 	display:block;
 	height: 61px;
+	font: 400 14px/61px tahoma;
+	color: #fff;
+	text-align: center;
 }
 .header .header_content .menu li a:hover{
-	width: 101px;
-	background:url("../../images/index/menu.png");
-	background-position: -102px -61px;
-	display:block;
-	height: 61px;
+	background:#fff;
+	color:#D43925;
 }
 .content{
 	padding-top: 1px;
