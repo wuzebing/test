@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-%>
+<%@include file="/WEB-INF/pages/base/base.jsp"%>
+	
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,7 +9,13 @@
 <title>首页</title>
 <link href="<%=path %>/resources/css/base/base.css" rel="stylesheet" type="text/css" />
 <link href="<%=path %>/resources/css/index/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=path%>/resources/js/home/index.js"></script>
 </head>
+<script>
+$(function(){
+	index.init();
+});
+</script>
 <body>
 	<div class="top_context">
 		<div class="w_990">
@@ -35,14 +40,12 @@
 	<div class="header">
 		<div class="w_990 header_content">
 			<a class="logo" href="#"></a>
-			<ul class="menu">
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
+			<ul class="menu" id="menu">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">恒分</a></li>
+				<li><a href="#">富分</a></li>
+				<li><a href="#">个人中心</a></li>
+				<li><a href="#">帮助中心</a></li>
 			</ul>
 		</div>
 	</div>
