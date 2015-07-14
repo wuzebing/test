@@ -251,7 +251,7 @@ public class RoleController {
 	public Object saveUserInfoWithRole(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		String userId = request.getParameter("userId");
 		String roleId = request.getParameter("roleId");
-		//设置参数
+		//设置参数设置
 		String headUrl = ConfigUtils.getStringValue("api.serverURL");
 		String tailUrl = ConfigUtils.getStringValue("admin.manage.permission.userInfo.save");
 		String requestURI = headUrl + tailUrl;
